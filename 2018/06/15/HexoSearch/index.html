@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Github Pages(四)：Hexo进阶-NexT本地搜索引擎的移植 | 韩朔的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Hexo 默认的 Landscape 主题其实已经很好了，可以说简明美观，网页上的元素也不难添加。但是美中不足的就是用了谷歌搜索引擎，谷歌在国内打不开就不说了，而且用外部搜索引擎本来也不如站内搜索便捷实用。后来我发现 NexT 主题是有站内搜索功能的，就试着把这个功能移植了进来。 本地搜索的原理对于动态网站来说，可以通过 php 实现（具体见Github Pages(二)：个人网站的功能插件）。但">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Github Pages(四)：Hexo进阶-NexT本地搜索引擎的移植">
+<meta property="og:url" content="https://hans2936.github.io/2018/06/15/HexoSearch/index.html">
+<meta property="og:site_name" content="韩朔的博客">
+<meta property="og:description" content="Hexo 默认的 Landscape 主题其实已经很好了，可以说简明美观，网页上的元素也不难添加。但是美中不足的就是用了谷歌搜索引擎，谷歌在国内打不开就不说了，而且用外部搜索引擎本来也不如站内搜索便捷实用。后来我发现 NexT 主题是有站内搜索功能的，就试着把这个功能移植了进来。 本地搜索的原理对于动态网站来说，可以通过 php 实现（具体见Github Pages(二)：个人网站的功能插件）。但">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://hans2936.github.io/2018/06/15/HexoSearch/HexoSearch.jpg">
+<meta property="article:published_time" content="2018-06-15T08:55:42.000Z">
+<meta property="article:modified_time" content="2024-05-03T04:56:47.201Z">
+<meta property="article:author" content="韩朔">
+<meta property="article:tag" content="个人网站">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hans2936.github.io/2018/06/15/HexoSearch/HexoSearch.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="韩朔的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  
+  <!-- <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css"> -->
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="stylesheet" href="/css/gitment.css"> 
+  <script src="/js/gitment.browser.js"></script>
+  <!--
+  <link rel="stylesheet" href=/css/gitalk.css">
+  <script src="/js/gitalk.min.js"></script>
+  -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">韩朔的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">主页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        
+	
+	<a href="javascript:;" class="popup-trigger nav-icon" id="nav-search-btn"></a>
+	
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://hans2936.github.io"></form>
+      </div>
+
+    </div>
+  </div>
+
+  
+  <div class="local-search-inner">
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+    <span id="icon-search"></span>
+    </span>
+    <span class="popup-btn-close">
+    <span id="icon-close"></span>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="  本地搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+  </div>
+  
+
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-HexoSearch" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/15/HexoSearch/" class="article-date">
+  <time datetime="2018-06-15T08:55:42.000Z" itemprop="datePublished">2018-06-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Github Pages(四)：Hexo进阶-NexT本地搜索引擎的移植
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script src="/assets/js/DPlayer.min.js"> </script><p>Hexo 默认的 Landscape 主题其实已经很好了，可以说简明美观，网页上的元素也不难添加。<br>但是美中不足的就是用了谷歌搜索引擎，谷歌在国内打不开就不说了，而且用外部搜索引擎本来也不如站内搜索便捷实用。<br>后来我发现 NexT 主题是有站内搜索功能的，就试着把这个功能移植了进来。</p>
+<h2 id="本地搜索的原理"><a href="#本地搜索的原理" class="headerlink" title="本地搜索的原理"></a>本地搜索的原理</h2><p>对于动态网站来说，可以通过 php 实现（具体见<a href="https://hans2936.github.io/2017/10/22/PageLog/">Github Pages(二)：个人网站的功能插件</a>）。<br>但是，GitHub博客是静态网站，用不了 php，导致我在老网站只能把google搜索结果页内置到了网站里面 （Landscape也用了谷歌）。</p>
+<p>NexT 主题实现这个功能，用了 Hexo 的拓展包 <code>hexo-generator-searchdb</code>，它预先生成了一个文本库<code>search.xml</code>，然后传到了网站里面 。在本地搜索的时候，NexT直接用javascript调用了这个文件，从而实现了静态网站的本地搜索。</p>
+<span id="more"></span>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>首先把产生文本库的包安装好，执行 <code>npm install hexo-generator-searchdb --save</code>。<br>然后在主配置文件 <code>_config.yml</code>里面加上</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  format: html</span><br><span class="line">  limit: 10000</span><br></pre></td></tr></table></figure>
+<p>并且在主题配置文件加上</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">local_search:</span><br><span class="line">  enable: true</span><br><span class="line">  trigger: auto</span><br><span class="line">  top_n_per_article: 1</span><br></pre></td></tr></table></figure>
+<p>其中<code>trigger</code>表示搜索结果会不会打字时自动显示，<code>top_n_per_article</code> 表示每篇文章最多显示几条结果（-1为不限数字）。<br>这些只是准备工作，在把代码放到Landscape 之前，这些设置不会起任何作用。</p>
+<h2 id="NexT-主题的本地搜索代码"><a href="#NexT-主题的本地搜索代码" class="headerlink" title="NexT 主题的本地搜索代码"></a>NexT 主题的本地搜索代码</h2><p>NexT 主题的 local-search 主要是下面几个模块组成的：</p>
+<ul>
+<li>核心javascript脚本：<a href="https://github.com/iissnan/hexo-theme-next/blob/master/layout/_third-party/search/localsearch.swig">localsearch.swig</a></li>
+<li>css配置文件：<a href="https://github.com/iissnan/hexo-theme-next/blob/master/source/css/_common/components/third-party/localsearch.styl">localsearch.styl</a></li>
+<li>搜索框：<a href="https://github.com/iissnan/hexo-theme-next/blob/master/layout/_partials/search/localsearch.swig">另一个localsearch.swig</a></li>
+<li>在header中添加链接：<a href="https://github.com/iissnan/hexo-theme-next/blob/master/layout/_partials/header.swig">header.swig</a></li>
+</ul>
+<p>Landscape主题的后缀有所不同（不是.swig， 而是.ejs），这几个文件copy过来之后需要稍微改一下语法，几个图标也需要重新定义，细节如下。</p>
+<h2 id="移植步骤"><a href="#移植步骤" class="headerlink" title="移植步骤"></a>移植步骤</h2><h3 id="定义”搜索”，”关闭”，”无结果”等图标"><a href="#定义”搜索”，”关闭”，”无结果”等图标" class="headerlink" title="定义”搜索”，”关闭”，”无结果”等图标"></a>定义”搜索”，”关闭”，”无结果”等图标</h3><p>NexT 大量使用了 <code>&lt;i class = &quot;fa abc&quot;&gt; &lt;/i&gt;</code> 这样的方式来引用 FontAwesome 图标，但是 Landscape 却不支持这么用。<br>所以一开始不得不定义一些图标，在主题文件夹 <code>themes/landscape/</code> 的 <code>/source/css/</code> 下面找个地方 （比如说<code>_partial/header.styl</code>），定义：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#icon-close:before &#123;</span><br><span class="line">  font-family: FontAwesome;</span><br><span class="line">  content: &quot;\f146&quot;;</span><br><span class="line">  font-size: x-large</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样就定义了一个关闭搜索框的图标。移植的时候重新定义图标为<code>&lt;span id=&quot;icon-close&quot;&gt;&lt;/span&gt;</code> 就可以了。<br>新定义的图标主要是搜索 <code>\f002</code>，关闭<code>\f146</code>，和无结果 <code>\f119</code>。</p>
+<h3 id="放入调出搜索框的链接"><a href="#放入调出搜索框的链接" class="headerlink" title="放入调出搜索框的链接"></a>放入调出搜索框的链接</h3><p>首先进入主题文件夹的<code>/layout/_partial/header.ejs</code> ，那里默认有一个搜索链接（<code>id=&quot;nav-search-btn&quot; class=&quot;nav-icon&quot;</code>）。<br>把这个链接扩展为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if(!theme.local_search.enable) &#123; %&gt;&lt;a id=&quot;nav-search-btn&quot; class=&quot;nav-icon&quot; title=&quot;&lt;%= __(&#x27;search&#x27;) %&gt;&quot;&gt;&lt;/a&gt;&lt;% &#125; %&gt;</span><br><span class="line">&lt;% if(theme.local_search.enable) &#123; %&gt;&lt;a href=&quot;javascript:;&quot; class=&quot;popup-trigger nav-icon&quot; id=&quot;nav-search-btn&quot;&gt;&lt;/a&gt;&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+<p>这也就意味着用主题配置中的 <code>local_search.enable</code> 来控制搜索功能了，打开本地搜索的情况下，搜索链接会启动<code>class=&quot;popup-trigger&quot;</code>，也就打开了本地搜索引擎。</p>
+<h3 id="放入搜索框"><a href="#放入搜索框" class="headerlink" title="放入搜索框"></a>放入搜索框</h3><p>还是着刚才的文件<code>header.ejs</code>，可以在最后一行<code>&lt;/header&gt;</code>前面加上</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if(theme.local_search.enable) &#123; %&gt;&lt;div class=&quot;local-search-inner&quot;&gt;&lt;%- partial(&#x27;search&#x27;) %&gt;&lt;/div&gt;&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+<p>其中 <code>&lt;%- partial(&#39;search&#39;) %&gt;</code> 指向了 <code>search.ejs</code>，这个文件也就是 NexT 的搜索框<a href="https://github.com/iissnan/hexo-theme-next/blob/master/layout/_partials/search/localsearch.swig">另一个localsearch.swig</a>了。<br>把它拷贝成<code>search.ejs</code> 跟 <code>header.ejs</code> 放在一起，但是图标要全部换成适配Landscape的定义。另外直接明码写上<code>placeholder=&quot; 本地搜索...&quot;</code> 就可以了。</p>
+<h3 id="放入核心-javascript"><a href="#放入核心-javascript" class="headerlink" title="放入核心 javascript"></a>放入核心 javascript</h3><p>把<a href="https://github.com/iissnan/hexo-theme-next/blob/master/layout/_third-party/search/localsearch.swig">localsearch.swig</a>放入<code>/layout/_partial/</code>, 并且命名为<code>localsearch.ejs</code>。<br>然后在<code>/layout/layout.ejs</code>的最后，<code>&lt;/body&gt;</code> 的上一行引用这个文件 <code>&lt;%- partial(&#39;_partial/localsearch&#39;) %&gt;</code>。<br>这个目的是在每一个网页的最下方加入这一段 javascript。</p>
+<p>然后就要改这个文件了， 要改的有三项：</p>
+<ul>
+<li>图标<br>跟刚才一样，凡是带<code>class=&quot;fa abc&quot;</code> 的图标都要重新定义成适配Landscape的。</li>
+<li>语法<br>改成 <code>localsearch.ejs</code> 之后，这个脚本里面的两类语法要改。 一是if..else..要这样用：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (theme.local_search.enable)&#123; %&gt;&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+二是config要这样调用（注意有个等号）：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var search_path = &quot;&lt;%= config.search.path %&gt;&quot; ;</span><br></pre></td></tr></table></figure>
+大概一共三四处要改，主要是config能读到就可以了。</li>
+<li>搜索框的位置<br>这个脚本里面有一处容易坑的地方，就是这一行<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(&#x27;.popup&#x27;).detach().appendTo(&#x27;.header-inner&#x27;);</span><br></pre></td></tr></table></figure>
+注意这个<code>.header-inner</code>是搜索框的位置，是要根据情况改的。比如我刚才在<code>header.ejs</code>定义的是<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;local-search-inner&quot;&gt;&lt;%- partial(&#x27;search&#x27;) %&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+那就要把<code>.header-inner</code> 改为 <code>.local-search-inner</code> 了。</li>
+</ul>
+<h3 id="放入渲染文件，取消阴影背景"><a href="#放入渲染文件，取消阴影背景" class="headerlink" title="放入渲染文件，取消阴影背景"></a>放入渲染文件，取消阴影背景</h3><p>渲染文件也是必须的，可以把 <a href="https://github.com/iissnan/hexo-theme-next/blob/master/source/css/_common/components/third-party/localsearch.styl">localsearch.styl</a> 放入 <code>/source/css/_partial/</code><br>然后在主渲染文件<code>/source/css/style.styl</code>中，注意加上 <code>@import &quot;_partial/localsearch&quot;</code> 就可以了。 </p>
+<p>不知道什么原因，这个搜索引擎的阴影背景<code>.local-search-pop-overlay</code> 总是会出现在最上方，导致搜索框出来之后根本点不到。我直接给它设置 <code>z-index: auto</code> ，跳过了这个问题。</p>
+<p>这个文件是大部分元素的渲染文件，可以用来调整图标位置，placeholder文字的大小等等，这都是细节了。</p>
+<h3 id="把原先的搜索功能关掉"><a href="#把原先的搜索功能关掉" class="headerlink" title="把原先的搜索功能关掉"></a>把原先的搜索功能关掉</h3><p>原先的搜索能在 <code>source/js/script.js</code> 里面，把这一段code移到 <code>localsearch.ejs</code> 里面，然后用一个</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (!theme.local_search.enable)&#123; %&gt;&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+<p>来控制就可以了。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>最终搜索的效果截图在这里：<br><img src="/2018/06/15/HexoSearch/HexoSearch.jpg" alt="本地搜索的效果"><br>其实直接用 NexT 就好了，不过自己编辑主题可以趁机学习一下。毕竟还是成功了。<br>有一点很重要的是，自己编辑主题是免不了要debug的，要善用谷歌浏览器的检查功能（以及最简单的输出 <code>console.log()</code>，或者其他工具的同类功能）。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://hans2936.github.io/2018/06/15/HexoSearch/" data-id="clvq9yxh900059yjm2vm199rm" class="article-share-link">分享</a>
+      
+	<a href="https://hans2936.github.io/2018/06/15/HexoSearch/#gitalk-container" class="article-comment-link">评论</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/" rel="tag">个人网站</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/06/19/EuroTrip/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">
+        
+          欧洲行
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/06/06/HexoLog/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">Github Pages(三)：使用Hexo博客生成工具</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+  <section id="comments">
+  <div id="gitalk-container"></div>
+      <script>
+      var gitalk = new Gitalk({
+      clientID: '3e8c534985cee5b9549d',
+      clientSecret: '292ef9d120bfb7ed9b61b0455a52c8c61737250c',
+      repo: 'hans2936.github.io',
+      owner: 'hans2936',
+      admin: ['hans2936'],
+      id: 'Fri Jun 15 2018 01:55:42 GMT-0700',      
+      distractionFreeMode: false,
+      language: 'zh-CN'
+    })
+   gitalk.render('gitalk-container')
+      </script>
+</section>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">关于</h3>    
+    <div class="widget">
+      理学博士 <br/>
+      <img src="https://hans2936.github.io/favicon.jpg" alt="" height=50% width=50% /><br/>
+      <!--
+      微信公众号：韩朔 <br/>
+      <img src="https://hans2936.github.io/weixin.jpg" alt="" height=50% width=50% /><br/>
+      微博：<a href="https://www.weibo.com/2161285545">琴剑诗书妃子笑</a> <br/>
+      -->
+      E-mail: hans2936@msn.cn
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/" style="font-size: 15px;">个人网站</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 10px;">旅行</a> <a href="/tags/%E8%AF%97%E4%B8%8E%E6%95%A3%E6%96%87/" style="font-size: 20px;">诗与散文</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新发布</h3>
+    <div class="widget">
+      <ul>
+	
+          <li>
+	    <a href="/2020/01/02/Spain/">瑞士-葡萄牙-西班牙</a>
+          </li>
+        
+          <li>
+	    <a href="/2019/01/02/Italy/">意大利</a>
+          </li>
+        
+          <li>
+	    <a href="/2018/06/19/EuroTrip/">欧洲行</a>
+          </li>
+        
+          <li>
+	    <a href="/2018/06/15/HexoSearch/">Github Pages(四)：Hexo进阶-NexT本地搜索引擎的移植</a>
+          </li>
+        
+          <li>
+	    <a href="/2018/06/06/HexoLog/">Github Pages(三)：使用Hexo博客生成工具</a>
+          </li>
+        
+          <li>
+	    <a href="/2017/10/22/PageLog/">Github Pages(二)：个人网站的功能插件</a>
+          </li>
+        
+          <li>
+	    <a href="/2017/10/21/PageBasic/">Github Pages(一)：一个最基础的个人网站</a>
+          </li>
+        
+          <li>
+	    <a href="/2015/07/16/YouMu/">游牧</a>
+          </li>
+        
+          <li>
+	    <a href="/2014/03/28/Wang/">忘</a>
+          </li>
+        
+          <li>
+	    <a href="/2014/01/18/YiWeiHai/">忆威海</a>
+          </li>
+        
+          <li>
+	    <a href="/2012/07/20/RenRuMingJing/">人如明镜</a>
+          </li>
+        
+          <li>
+	    <a href="/2011/07/16/DaMingHu/">游大明湖畔随笔</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018-2024 韩朔<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      <br/>本站博客采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/">知识共享署名-非商业性使用-相同方式共享 3.0 中国大陆许可协议</a>进行许可。
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">主页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/about" class="mobile-nav-link">关于</a>
+  
+</nav>
+    
+
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script> -->
+<!-- <script src="https://cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script> -->
+ <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+
+  
+<script src="/js/bootstrap.js"></script>
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml" ;
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+	  '<span id="icon-spinner"></span>' +
+          //'<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.local-search-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              //resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+              resultContent.innerHTML = '<div id="no-result"><span id="icon-search-large" /></div>'
+            } else if (resultItems.length === 0) {
+              //resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+              resultContent.innerHTML = '<div id="no-result"><span id="icon-frown" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener("input", inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);	     
+            input.addEventListener("keypress", function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+</body>
+</html>
