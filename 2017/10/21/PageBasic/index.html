@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Github Pages(上)：个人网站和简单插件 | 韩朔的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一直想做个博客网站，去网上查了一下，最先查出来的是云服务器+WordPress，不过又要买服务器，又要买域名，还得备案。后来发现每个Github账户都可以开一个自己的静态网站（域名为 username.github.io），非常简单。静态网站的定义参见维基百科-网页设计，虽然方便，但是也有一些功能上的限制，最显著的特点就是不能运行php和asp，不能自动读写站内的文件。不过静态网页依然可以实现个人">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Github Pages(上)：个人网站和简单插件">
+<meta property="og:url" content="https://hans2936.github.io/2017/10/21/PageBasic/index.html">
+<meta property="og:site_name" content="韩朔的博客">
+<meta property="og:description" content="一直想做个博客网站，去网上查了一下，最先查出来的是云服务器+WordPress，不过又要买服务器，又要买域名，还得备案。后来发现每个Github账户都可以开一个自己的静态网站（域名为 username.github.io），非常简单。静态网站的定义参见维基百科-网页设计，虽然方便，但是也有一些功能上的限制，最显著的特点就是不能运行php和asp，不能自动读写站内的文件。不过静态网页依然可以实现个人">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://hans2936.github.io/2017/10/21/PageBasic/PageBasic.jpg">
+<meta property="og:image" content="https://hans2936.github.io/2017/10/21/PageBasic/GoogleSite.jpg">
+<meta property="og:image" content="https://hans2936.github.io/2017/10/21/PageBasic/Gitment.jpg">
+<meta property="article:published_time" content="2017-10-20T17:55:42.000Z">
+<meta property="article:modified_time" content="2024-12-11T00:39:18.148Z">
+<meta property="article:author" content="韩朔">
+<meta property="article:tag" content="个人网站">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hans2936.github.io/2017/10/21/PageBasic/PageBasic.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="韩朔的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  
+  <!-- <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css"> -->
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="stylesheet" href="/css/gitment.css"> 
+  <script src="/js/gitment.browser.js"></script>
+  <!--
+  <link rel="stylesheet" href=/css/gitalk.css">
+  <script src="/js/gitalk.min.js"></script>
+  -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">韩朔的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">主页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        
+	
+	<a href="javascript:;" class="popup-trigger nav-icon" id="nav-search-btn"></a>
+	
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://hans2936.github.io"></form>
+      </div>
+
+    </div>
+  </div>
+
+  
+  <div class="local-search-inner">
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+    <span id="icon-search"></span>
+    </span>
+    <span class="popup-btn-close">
+    <span id="icon-close"></span>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="  本地搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+  </div>
+  
+
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-PageBasic" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/10/21/PageBasic/" class="article-date">
+  <time datetime="2017-10-20T17:55:42.000Z" itemprop="datePublished">2017-10-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Github Pages(上)：个人网站和简单插件
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一直想做个博客网站，去网上查了一下，最先查出来的是云服务器+WordPress，不过又要买服务器，又要买域名，还得备案。<br>后来发现每个Github账户都可以开一个自己的静态网站（域名为 username.github.io），非常简单。<br>静态网站的定义参见<a href="https://zh.wikipedia.org/wiki/%E7%BD%91%E9%A1%B5%E8%AE%BE%E8%AE%A1">维基百科-网页设计</a>，虽然方便，但是也有一些功能上的限制，最显著的特点就是不能运行php和asp，不能自动读写站内的文件。<br>不过静态网页依然可以实现个人博客需要的所有功能，而我也只是学习一下做网页、博客什么的，这个方案已经是最好的了。</p>
+<p>这篇博客介绍搭建一个基于html的网站框架的过程。</p>
+<h2 id="拥有并了解Github-账户"><a href="#拥有并了解Github-账户" class="headerlink" title="拥有并了解Github 账户"></a>拥有并了解Github 账户</h2><h3 id="第一步-注册"><a href="#第一步-注册" class="headerlink" title="第一步 注册"></a>第一步 注册</h3><p>没啥好说的，进入<a href="https://github.com/">https://github.com</a>，然后注册一个账户就可以了。</p>
+<span id="more"></span>
+
+<h3 id="第二步-确保可以自由地创建-修改-下载-上传一个库（repository）"><a href="#第二步-确保可以自由地创建-修改-下载-上传一个库（repository）" class="headerlink" title="第二步 确保可以自由地创建&#x2F;修改&#x2F;下载&#x2F;上传一个库（repository）"></a>第二步 确保可以自由地创建&#x2F;修改&#x2F;下载&#x2F;上传一个库（repository）</h3><p>网页是由很多html，css，js等文件组成的，对github pages来说，一个repository就是存放这些文件的文件夹，所以确保可以随心所欲的管理一个库是最基本的。</p>
+<p>这里是第一个官方教程：<a href="https://guides.github.com/activities/hello-world/">GitHub:Hello world</a>。可以通过按钮来理解一个库的构造和维护，不过这只能让你创建修改一个Readme文件。<br>这里你会意识到每个库是可以创建分支(branch)的，实际操作中，如果对版本要求没那么严格（做个网页而已），你可以忽略branch的存在，只用master一个默认branch即可。</p>
+<p>这个时候你已经可以用网页看到这么一个库了，到这一步你的库可能只有一个Readme：</p>
+<p>Github的关键就是可以用Git来控制（<a href="https://zh.wikipedia.org/wiki/Git">维基百科-Git</a>），这是一个版本工具（我的理解是一个每次上传都备份一个版本，并且可以协调多人同时修改的公用网盘）。当在确定自己的终端可以使用 <code>git --version</code> 命令（Mac+Xcode自带），并且安装了SSH-Key 之后，你就可以使用如下的基本命令来控制你的库了：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git clone 你的SSH地址 （下载你的reposity，这个地址可以用网页浏览的Clone-or-Download-use SSH按钮看到，比如说git@github.com:uername/reposity.git）</span><br><span class="line">git pull （联系服务器，更新本地文件夹）</span><br><span class="line">git add --all （写入本地的所有新文件）</span><br><span class="line">git commit -am &quot;随便说点啥&quot; （在本地进行一次有记录地更新，包括本地所有文件的修改）</span><br><span class="line">git push origin master （把本地的更新推送到服务器）</span><br></pre></td></tr></table></figure>
+
+<p>SSH-Key决定了你的电脑有没有权限进行这些操作，这里有另一个官方教程：<a href="https://help.github.com/articles/connecting-to-github-with-ssh/">GitHub:SSH</a>，这个是必须一步步跟下来的，Mac的重要命令包括：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ls -al ~/.ssh (查一下是不是已经有key了)</span><br><span class="line">ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot; （产生一个key，不单独设密码的话一路回车就行）</span><br><span class="line">pbcopy &lt; ~/.ssh/id_rsa.pub （把你的key复制到粘贴板，不这么复制可能太长了复制不下来）</span><br></pre></td></tr></table></figure>
+<p>Linux和Windows进入刚才的教程看就行，如下图，在点击“右上角头像”+“Settings”+“SSH and GPG Keys” 这里添加了你刚刚复制的public Key之后，你就有权限进行上述的Git操作了。</p>
+<h2 id="搭建Github-Page网站"><a href="#搭建Github-Page网站" class="headerlink" title="搭建Github Page网站"></a>搭建Github Page网站</h2><h3 id="第一步-创建一个Github-Pages-repository"><a href="#第一步-创建一个Github-Pages-repository" class="headerlink" title="第一步 创建一个Github Pages repository"></a>第一步 创建一个Github Pages repository</h3><p>GitHub Pages repository跟普通的repository是一样的，唯一的区别就是他的名字必须叫做username.gihub.io。这个官方教程 <a href="https://pages.github.com/">GitHub Pages</a> 写的十分好懂，按这个做完之后你就有了一个你的网址 username.github.io，里面有一句 Hello World！</p>
+<h3 id="第二步-最基础的网站框架"><a href="#第二步-最基础的网站框架" class="headerlink" title="第二步 最基础的网站框架"></a>第二步 最基础的网站框架</h3><p>现在离一个好网站只差一步了，就是把某个好网站的所有文件拷贝到你的文件夹里面。<br>GitHub官方建议你使用博客生成工具 <a href="https://help.github.com/articles/using-jekyll-as-a-static-site-generator-with-github-pages/">Jekyll</a> 。GitHub在库的设置里面还提供Jekyll主题选择。而我的博客使用了<a href="https://hexo.io/zh-cn/">Hexo</a>生成工具，具体见我的博客<a href="https://hans2936.github.io/2018/06/06/HexoLog/">Github Pages(下)：使用Hexo博客生成工具</a>。<br>强烈推荐使用网站工具，这样可以直接用markdown格式编辑文章，而且使用简单的命令实现预览，生成和发布，从而节省大量的时间。</p>
+<p>我一开始并不了解博客工具，所以去了一个模版网站 <a href="https://html5up.net/">HTML5 UP</a>，然后下载了其中一个模版，直接在本地打开 index.html，就看到了网站预览，如图：</p>
+<p><img src="/2017/10/21/PageBasic/PageBasic.jpg" alt="朴素的网页模版"></p>
+<p>然后我再手动<code>git add</code> 所有的文件到我的网站中。当你<code>git push</code>之后，你的域名就会变成这样一个网站了。这也就是一个最基础的网站了。<br>不用博客工具的好处是有利于学习网页知识，当博客不多的时候，对习惯使用bash+vim的人来说，这样编辑网站是可以接受的。坏处是写一个博客就多一个html，如果有比如超过50篇博客，每篇博客的公共部分就很麻烦了。</p>
+<h3 id="第三步-开始发挥吧"><a href="#第三步-开始发挥吧" class="headerlink" title="第三步 开始发挥吧"></a>第三步 开始发挥吧</h3><p>不管是使用博客工具，还是直接手动添加html，都离不开对 html&#x2F;css&#x2F;JavaScript的基本理解。比如上述简单的网站模版，很多按钮，搜索框等都是空的，需要简单的填充。而即使用了博客工具，想要添加“关于”，或者侧边栏等各种元素，也是需要运用网页语言的。<br>下面就是自由发挥了，继续进入<a href="https://hans2936.github.io/2018/06/06/HexoLog/">Github Pages(下)：使用Hexo博客生成工具</a>使用博客生成工具吧。</p>
+<h1 id="补充篇：个人网站的功能插件"><a href="#补充篇：个人网站的功能插件" class="headerlink" title="补充篇：个人网站的功能插件"></a>补充篇：个人网站的功能插件</h1><p>上文我们已经介绍了怎样用Github Pages做出一个网站框架，例如完全重复出 <a href="https://html5up.net/">HTML5 UP</a> 网站上的某个模版。在熟悉该模版之后，你就已经可以编写博客页(html)，并且链接到首页了。甚至可以有出色的排版与配图。</p>
+<p>但对一个博客网站来说这样还不够，很多互动功能也是需要手动添加、单独理解的，包括评论框、搜索栏、点击量计数、分享按钮、网站导航、网页排版和图片滚动等。</p>
+<p>这一篇文章是一个大合集，总结我曾经见到的个人网站互动功能，以及各个解决方案的优劣。</p>
+<p>注意：虽然列出了这么多插件，但是这些只是技术储备，如果你是一个网站新手，建议先阅读<a href="https://hans2936.github.io/2018/06/06/HexoLog/">Github Pages(下)：使用Hexo博客生成工具</a>。</p>
+<h2 id="搜索功能"><a href="#搜索功能" class="headerlink" title="搜索功能"></a>搜索功能</h2><p>搜索功能包括两部分，一是在站内快速找到某一篇博客，这个方便网站的使用；二是在站外的搜索引擎上可以查到你的博客，这个有助于网站的推广。然而我在选择搜索工具的时候发现静态网站是无法自己写站内引擎的，所以我的搜索功能就暂时借助第三方（谷歌）实现了。<br>(注：这篇文章写的早，Hexo的那篇中，已经搞定了站内搜索。)</p>
+<h3 id="php站内搜索的失败尝试"><a href="#php站内搜索的失败尝试" class="headerlink" title="php站内搜索的失败尝试"></a>php站内搜索的失败尝试</h3><p>在站内搜索到某个文件，直接写一段PHP遍历本站文件是最靠谱的，所以我就搜到了一位大神写的code（<a href="http://www.moon-soft.com/download/info/1492.htm">月光软件文章</a>）。但是这段code有两个函数（<code>eregi</code>和<code>split</code>）在PHP7 过期了。所以我修改了一下（使用<code>preg_match</code>和<code>explode</code>），成了这个文件<a href="https://github.com/hans2936/Hans_Blog_Old/blob/master/search.php">search.php</a>。<br>使用的时候，只要在网页中调用这个search.php就可以了，比如说</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;form method=&quot;GET&quot; action=&quot;search.php&quot;&gt;</span><br><span class="line">&lt;input type=&quot;text&quot; name=&quot;keyword&quot; placeholder=&quot;PHP站内搜索&quot; /&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这个搜索引擎目前的效果是简单的列出全部搜出来的文件链接，在这个效果上美化一下就可以了。</p>
+<p>在测试PHP文件的时候，必须要打开本地Web服务，启动方法（Mac）参见本文的“网页编辑后的预览”一节。</p>
+<p>不成功的原因是显然的，Github Pages是静态的，不能运行php程序。不过这段学习经历挺有意思。</p>
+<h3 id="谷歌自定义搜索"><a href="#谷歌自定义搜索" class="headerlink" title="谷歌自定义搜索"></a>谷歌自定义搜索</h3><p>引入谷歌自定义搜索有两个工作，一是建立一个自定义引擎（<a href="https://cse.google.com/">谷歌自定义搜索</a>），二是给谷歌提供网站信息（<a href="https://www.google.com/webmasters/tools">Google Search Console</a>）。<br>点击<a href="https://cse.google.com/">谷歌自定义搜索</a>，创建一个搜索引擎，然后在“外观”选项卡里就可以找到“保存并获取代码”按钮了。把这个代码加入你要显示结果的网页即可。<br>谷歌自定义引擎的搜索框有点丑，十有八九跟你的主题不一样，好在这个引擎也支持分页显示。本站的搜索功能就是用分页的方式实现的：首先选择一个分页的引擎主题，然后单独建立一个Search.html，加入刚才说的自定义引擎代码，然后在其他网页需要加入搜索框的地方输入一个原生主题的搜索框。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;form method=&quot;Get&quot; action=&quot;blogs/Search.html&quot;&gt;</span><br><span class="line">&lt;input type=&quot;text&quot; name=&quot;q&quot; id=&quot;s&quot; placeholder=&quot;站内Google&quot; /&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这样每次搜索就会跳转到搜索结果页了。当然也可以用“弹出”的主题，把<code>action</code>直接放到本页，就可以有直接在本页显示结果的效果。<br>给谷歌提供网站信息也是很重要的，这决定了谷歌搜索你网站时结果的质量。我首先在<a href="https://www.google.com/webmasters/tools">Google Search Console</a>注册了一个账户，添加本站，然后在管理界面的“抓取”、“站点地图”添加了一个写着本站所有网页地址的sitemap.txt文件，这样谷歌就知道本站以及各个网页的位置了（只添加站点不提交地图也行，这关系到谷歌爬取网页的效率)。</p>
+<p><img src="/2017/10/21/PageBasic/GoogleSite.jpg" alt="正确提交Sitemap之后"></p>
+<p>这个解决方案可以得到在网站内显示谷歌搜索结果的效果。但是当我频繁修改网站的时候，谷歌的滞后是很明显的。</p>
+<p>为了提高效果，还可以提交更多的信息给谷歌，包括一些关键词，这些我就没有深究了。</p>
+<h3 id="百度自定义搜索"><a href="#百度自定义搜索" class="headerlink" title="百度自定义搜索"></a>百度自定义搜索</h3><p>百度自定义搜索其实跟谷歌差不多，都包括自定义一个引擎加入网页（<a href="http://zn.baidu.com/cse/searchbox/">百度自定义搜索</a>），和为百度提供网站信息（<a href="http://zhanzhang.baidu.com/">百度站长工具</a>）两个步骤。这里就不赘述了。<br>但是百度跟Github Pages的兼容性似乎是有问题的，百度抓取github.io的效率明显比谷歌低很多（搜索同样的Github Pages网页就知道了，而且我把本站提交给百度没有效果）。所以本站的第三方搜索引擎还是选择了谷歌。</p>
+<h2 id="评论功能"><a href="#评论功能" class="headerlink" title="评论功能"></a>评论功能</h2><p>评论功能是博客的重要互动功能，但是评论是动态的，Github Pages是静态的，需要借助一个第三方服务来实现。</p>
+<h3 id="新浪评论框的失败尝试"><a href="#新浪评论框的失败尝试" class="headerlink" title="新浪评论框的失败尝试"></a>新浪评论框的失败尝试</h3><p>在网上搜了一下之后，我最先想到的解决方案是<a href="http://open.weibo.com/">微博开放平台</a>，因为微博几乎谁都有，从演示的效果来看，评论功能使用微博评论箱，再结合微博分享、微博赞按钮两个插件，就跟在微博内部评论是一样的了（甚至还有微博秀这种直接展示微博个人页的功能），等于把个人博客和微博社区结合起来了。</p>
+<p>作为官方插件，需要先申请一个Appkey。这件事有两个步骤，一是在<a href="http://open.weibo.com/">微博开放平台</a>申请一个账户，然后提交身份验证。二是在<a href="http://open.weibo.com/connect">微博开放平台：网站接入</a>接入你的网站，然后提交审核。<br>Github Pages显然是境外网站，不需要提供备案信息，只要选择境外网站的验证，把域名查询（<a href="http://whois.chinaz.com/">站长之家Whois查询</a>）和ip查询（<a href="http://www.iapolo.com/ip/">阿波罗ip查询</a>）的结果放到一张图片上上传就行了。<br>在网页中加入评论箱本身并不复杂，只要点击<a href="http://open.weibo.com/widget/comments.php">微博开放平台：评论箱</a>，然后把底部代码加入网页就行了。其他插件也是一样的，本地预览可以很快看到效果。</p>
+<p><strong>然而，微博插件在Github Pages是不能正常使用的。</strong>一开始我并不知道原因，后来用Chrome浏览器打开网页的时候，发现这些插件实际上是被浏览器安全政策阻止了。这对个人网站来说肯定是不可接受的，因为你不能要求访问者为了访问你的网站而修改浏览器设置。<br>进一步去查这些插件不安全的原因，就发现微博的插件是不支持https的，而现在Github Pages用的是https的域名。进入Github Pages库的设置，会发现这么一个无法更改的选项。</p>
+<blockquote>
+<p>Enforce HTTPS<br>— Required for your site because you are using the default domain (hans2936.github.io)</p>
+</blockquote>
+<p>也就是说除非我自己买一个域名，否则这个选项是不能修改的。再说好像没必要为了一个评论系统把网站从https改成http，这个方案也就搁浅了。</p>
+<h3 id="来必力"><a href="#来必力" class="headerlink" title="来必力"></a>来必力</h3><p>第二个方案是找一些专门提供评论服务的网站，我找到了现在比较流行的<a href="http://www.laibili.com.cn/city-demo">来必力</a>。<br>加入这个服务就比新浪评论箱简单多了。先注册一个账户，然后点击“体验”、“管理中心”，就可以看到代码了。<br>这个服务的好处是可以用国内所有的社交网站登陆（QQ、微信、微博），而且界面也很好看。<br>但是来必力有一个硬伤，就是加载速度太慢了。感觉博客前两段看完了这个插件还没加载出来，一开始我觉得无伤大雅，直到我发现这个评论框不加载完，本站的导航栏就弹不出来。这就有点影响体验了，所以这个方案也没使用。</p>
+<h3 id="Gitment"><a href="#Gitment" class="headerlink" title="Gitment"></a>Gitment</h3><p>最后我终于找了一个比较合适的评论系统：<a href="https://imsun.net/posts/gitment-introduction/">教程：Gitment</a>。<br>这个教程已经很详细了，唯一需要注意的是它跟search.php一样必须开本地Web服务器才能查看效果。<br>这个评论系统是直接把Github issues搬到你自己的网页。它有三个好处，第一个就是把Github pages和Github issues联系起来，这样连评论带网站都在一个库里面；第二个好处是Gitment是一个出色的评论框，支持markdown语法，还自带点赞；第三个好处是加载速度快。唯一的坏处就是只能使用Github账户评论，不过我觉得可以接受，因为本来就是技术性博客，提高评论门槛也未必是坏事。<br>所以这就是我网站的评论框解决方案了。</p>
+<p>（2019年12月更新：忽然发现Gitment不能用了，通过查看Gitment的Github项目<a href="https://github.com/imsun/gitment/issues/188">Gitment issue 188</a>解决了问题。又发现出现了类似的工具Gitalk。）</p>
+<p> (2020年4月更新：发现上次解决方案重新push的时候还是有bug，改用 <a href="https://github.com/gitalk/gitalk/blob/master/readme-cn.md">Gitalk</a> 了，另外在外网，<a href="https://disqus.com/">Disqus</a>是可以用的。)</p>
+<p><img src="/2017/10/21/PageBasic/Gitment.jpg" alt="Gitment的使用效果"></p>
+<h2 id="分享按钮"><a href="#分享按钮" class="headerlink" title="分享按钮"></a>分享按钮</h2><p>分享也是博客网站重要的互动功能。在国内比较重要的就是支持微信和微博的分享，尤其是微信。<br>本站的评论栏上面都有分享按钮，其中微信还可以扫码，这个功能来自于<a href="https://github.com/overtrue/share.js">Github:share.js</a>。这个Github文件夹的Readme有一个教程，不过我是把整个包下载下来，仔细看了一下demo网页，然后照搬到本站的。<br>现在这个分享按钮并不是腾讯或新浪提供的原生插件，对微博、QQ来说是跳转到一个分享页，对微信来说是在微信中打开本网址，进而实现分享的。因为有微博评论箱的经验，我也就不强求原生插件了，这个效果还可以。</p>
+<h2 id="计数"><a href="#计数" class="headerlink" title="计数"></a>计数</h2><p>在博客列表统计评论数、点击数、赞数可以让访问者快速找到比较火的文章。也可以为进一步排序提供依据。统计也是动态的，要借助一个第三方服务。<br>本站的博客都有一个点击量统计，这些数字是提供自<a href="http://busuanzi.ibruce.info/">网站:不蒜子</a>的。教程链接为<a href="http://ibruce.info/2015/04/04/busuanzi/">教程:不蒜子</a>，非常简单，粘贴里面的代码进入网页即可。这个统计分本站点击，本站访问人次和本页点击。<br>但是现在点击统计仅限于本页，没有传递到博客列表。另外，评论和赞的统计比点击数更有意义，Gitment应该可以做到但还没有官方的解决方案。这些以后再去开发吧。</p>
+<h2 id="网页设计"><a href="#网页设计" class="headerlink" title="网页设计"></a>网页设计</h2><h3 id="使用Markdown编辑网页博客"><a href="#使用Markdown编辑网页博客" class="headerlink" title="使用Markdown编辑网页博客"></a>使用Markdown编辑网页博客</h3><p>在写博客的时候，如果直接在html里面敲字体验并不好。因为要不断地敲一些<code>&lt;p&gt;</code>, <code>&lt;a&gt;</code>,  <code>&lt;li&gt;</code> 这些格式的开头和结尾。虽然latex写习惯了之后这也没什么，但是个人博客还有更轻松的办法来写，就是用Markdown编辑器。<br><a href="https://zh.wikipedia.org/wiki/Markdown">Markdown语法</a>是一个非常适合写日志的语法。我直接从App Store里面搜了一个编辑器，叫<a href="http://zh.mweb.im/">MWeb</a>，还是很好用的。写完之后可以直接导出为html格式，然后取其中正文部分粘贴到博客网页即可。这个过程只需要注意检查图片、列表等特殊部分跟网站模板的兼容性就行了。</p>
+<p>举例来说，Mweb支持数学公式的编辑和导出，这是用<a href="https://www.mathjax.org/">MathJax</a>来实现的。MWeb在导出html时会自动转换格式，但此时要注意检查网页的引用：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;&gt;&lt;/script&gt;</span><br><span class="line"> &lt;script type=&quot;text/x-mathjax-config&quot;&gt;MathJax.Hub.Config(&#123;TeX: &#123;equationNumbers: &#123; autoNumber: &quot;AMS&quot; &#125; &#125;&#125;);&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>更简单的就是使用Hexo等博客发布工具，这样省去了自己导出html，直接编辑好Markdown，再加一条<code>hexo g</code>命令就变成网页了。</p>
+<h3 id="网页编辑后的预览"><a href="#网页编辑后的预览" class="headerlink" title="网页编辑后的预览"></a>网页编辑后的预览</h3><p>网页预览的方式有四种：</p>
+<p>一，直接用浏览器打开html，这肯定是最快的。但是有些插件不能显示，比如不能测试上述的Gitment和search.php。但是大部分工作还是能胜任的。</p>
+<p>二， 使用<a href="https://zh.wikipedia.org/wiki/Adobe_Dreamweaver">Adobe Dreamweaver</a>这样的专业工具检查，我并没有开发太多功能，不过很重要的是检查网页的报错，以及批量查找&#x2F;替换某个词句。</p>
+<p>三， 打开本地Web服务器。这是能完美运行网站上所有插件，甚至可以测试动态模块的办法。具体步骤参见<a href="http://www.jianshu.com/p/d006a34a343f">简书博客:Mac OS X Web Server</a>。比较重要的命令就是<code>apachectl</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apachectl start</span><br><span class="line">sudo apachectl stop</span><br></pre></td></tr></table></figure>
+
+<p>启动<code>apachectl</code>后，把你的网站文件夹拷贝到<code>/Library/WebServer/Documents</code>，然后打开<code>http://127.0.0.1/网站文件夹</code>就可以了，博客里面还写了一些高级功能，如怎样更改路径和配置等。</p>
+<p>四，如果用了Hexo博客工具，一条<code>hexo s</code>命令就可以了。</p>
+<h2 id="图片滚动"><a href="#图片滚动" class="headerlink" title="图片滚动"></a>图片滚动</h2><h3 id="图片滚动插件"><a href="#图片滚动插件" class="headerlink" title="图片滚动插件"></a>图片滚动插件</h3><p>这个功能对博客来说可有可无，不过对于普通网站来说，宣传新闻，推销产品什么的还是很有用的。我觉得很有意思就留在首页了，循环播放本站的日志，这应该是本站唯一一个没那么朴素的效果。<br>本站的插件叫做<a href="https://github.com/Codeinwp/Nivo-Slider-jQuery">Nivo Slider</a>，用起来比较舒服，因为图片和图例是分开的，设置也很多。我试了好几个素材网站的插件都没有这个好。但是Nivo Slider有一个毛病是图片的尺寸最好都一样，而且不能太方正（我都是1920x960的图），否则电脑端还好，但在移动端会出现显示问题。</p>
+<p>点击链接<a href="https://github.com/Codeinwp/Nivo-Slider-jQuery">Github:Nivo Slider</a>，下载并学习demo就可以把它加入你的网页了。</p>
+<h3 id="手机滑动的实现"><a href="#手机滑动的实现" class="headerlink" title="手机滑动的实现"></a>手机滑动的实现</h3><p>Nivo Slider本身是不支持手机的，找那两个小按钮实在比较麻烦。所以我找到了一位高人的博客 <a href="http://willrees.com/2013/02/make-your-nivo-slider-touch-capable/">Will Rees</a>。他在里面讲了怎样利用一段支持手机滑动指令的代码 <a href="http://hammerjs.github.io/">Hammer.js</a>实现Nivo Slider的左右滑动。<br>用手机打开本站主页就可以看到效果了。不过因为我只是在Nivo Slider上面稍作修改，在手机上是只能左右滑动，不能手指悬停的。完美的解决方案可能是为手机单独找个插件。</p>
+<h2 id="回到顶部按钮"><a href="#回到顶部按钮" class="headerlink" title="回到顶部按钮"></a>回到顶部按钮</h2><p>在网页很长的时候，回到顶部按钮就很有用了。这个需要一段javascript code实现。我是在Google上随便找了一个，改了改图标和大小，也可以看文件<a href="https://github.com/hans2936/Hans_Blog_Old/blob/master/assets/js/back.js">back.js</a>。确定按钮图片的位置对之后，引用一下就可以了。</p>
+<h2 id="关于、版权"><a href="#关于、版权" class="headerlink" title="关于、版权"></a>关于、版权</h2><p>考虑到现在转载不署名的情况到处都是，在某个位置声明一下网站内容的版权也是有必要的。<br>在网页中加入版权声明其实很简单，只要进入版权网页<a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/">Creative Commons</a>，在这一页最下方点击“<a href="https://creativecommons.org/choose/results-one?license_code=by-nc-sa&amp;jurisdiction=cn&amp;version=3.0&amp;lang=zh">将这个授权协议使用在您自己的作品中</a>”就可以找到代码了，或者直接点这里的链接也行。</p>
+<p>这个证书是一个署名-可修改-非商业用途证书，如果你需要其他政策，也可以去Google其他证书的名字，基本上第一个弹出来的就是这些Createive Commons协议了。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>至此我总结完了学习过程中遇到的各种功能插件。我属于业余，很多细节还在学习中，相信会有更好的解决方案。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://hans2936.github.io/2017/10/21/PageBasic/" data-id="cm525fd990005ct0gg32l57bx" class="article-share-link">分享</a>
+      
+	<a href="https://hans2936.github.io/2017/10/21/PageBasic/#gitalk-container" class="article-comment-link">评论</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/" rel="tag">个人网站</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/06/06/HexoLog/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">
+        
+          Github Pages(下)：使用Hexo博客生成工具
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/07/16/YouMu/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">星月集</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+  <section id="comments">
+  <div id="gitalk-container"></div>
+      <script>
+      var gitalk = new Gitalk({
+      clientID: '3e8c534985cee5b9549d',
+      clientSecret: '292ef9d120bfb7ed9b61b0455a52c8c61737250c',
+      repo: 'hans2936.github.io',
+      owner: 'hans2936',
+      admin: ['hans2936'],
+      id: 'Sat Oct 21 2017 01:55:42 GMT+0800',      
+      distractionFreeMode: false,
+      language: 'zh-CN'
+    })
+   gitalk.render('gitalk-container')
+      </script>
+</section>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">关于</h3>    
+    <div class="widget">
+      理学博士 <br/>
+      <img src="https://hans2936.github.io/favicon.jpg" alt="" height=50% width=50% /><br/>
+      <!--
+      微信公众号：韩朔 <br/>
+      <img src="https://hans2936.github.io/weixin.jpg" alt="" height=50% width=50% /><br/>
+      微博：<a href="https://www.weibo.com/2161285545">琴剑诗书妃子笑</a> <br/>
+      -->
+      E-mail: hans2936@msn.cn <br/>
+      B站: hans2936
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/" style="font-size: 15px;">个人网站</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 10px;">旅行</a> <a href="/tags/%E8%AF%97%E4%B8%8E%E6%95%A3%E6%96%87/" style="font-size: 20px;">诗与散文</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新发布</h3>
+    <div class="widget">
+      <ul>
+	
+          <li>
+	    <a href="/2018/06/19/EuroTrip/">欧洲行（2018-2020）</a>
+          </li>
+        
+          <li>
+	    <a href="/2018/06/06/HexoLog/">Github Pages(下)：使用Hexo博客生成工具</a>
+          </li>
+        
+          <li>
+	    <a href="/2017/10/21/PageBasic/">Github Pages(上)：个人网站和简单插件</a>
+          </li>
+        
+          <li>
+	    <a href="/2015/07/16/YouMu/">星月集</a>
+          </li>
+        
+          <li>
+	    <a href="/2014/03/28/Wang/">明镜与忘我</a>
+          </li>
+        
+          <li>
+	    <a href="/2013/03/12/XiaRi/">夏日集</a>
+          </li>
+        
+          <li>
+	    <a href="/2011/04/24/QiuShui/">秋水集</a>
+          </li>
+        
+          <li>
+	    <a href="/2008/05/11/XinYe/">新叶集</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018-2024 韩朔<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      <br/>本站博客采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/">知识共享署名-非商业性使用-相同方式共享 3.0 中国大陆许可协议</a>进行许可。
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">主页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/about" class="mobile-nav-link">关于</a>
+  
+</nav>
+    
+
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script> -->
+<!-- <script src="https://cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script> -->
+ <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+
+  
+<script src="/js/bootstrap.js"></script>
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml" ;
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+	  '<span id="icon-spinner"></span>' +
+          //'<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.local-search-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              //resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+              resultContent.innerHTML = '<div id="no-result"><span id="icon-search-large" /></div>'
+            } else if (resultItems.length === 0) {
+              //resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+              resultContent.innerHTML = '<div id="no-result"><span id="icon-frown" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener("input", inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);	     
+            input.addEventListener("keypress", function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+</body>
+</html>

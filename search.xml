@@ -1,0 +1,638 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>欧洲行（2018-2020）</title>
+    <url>/2018/06/19/EuroTrip/</url>
+    <content><![CDATA[<h2 id="慕尼黑-汉堡-巴黎-柏林"><a href="#慕尼黑-汉堡-巴黎-柏林" class="headerlink" title="慕尼黑-汉堡-巴黎-柏林"></a>慕尼黑-汉堡-巴黎-柏林</h2><p>2018年4-5月，春游。(封面：在新天鹅堡看高天鹅堡)</p>
+<div id="dplayer0" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer0"),"theme":"#FADFA3","loop":true,"video":{"url":"https://hans-blog-video.oss-cn-beijing.aliyuncs.com/%E6%AC%A7%E6%B4%B2%E8%A1%8C201805.mp4","pic":"https://hans2936.github.io/2018/06/19/EuroTrip/Hohenschwangau.jpg"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>
+
+<h2 id="罗马-佛罗伦萨-威尼斯"><a href="#罗马-佛罗伦萨-威尼斯" class="headerlink" title="罗马-佛罗伦萨-威尼斯"></a>罗马-佛罗伦萨-威尼斯</h2><p>2019年元旦，刺客信条之旅。(封面：《春》)</p>
+<span id="more"></span>
+<div id="dplayer1" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer1"),"theme":"#FADFA3","loop":true,"video":{"url":"https://hans-blog-video.oss-cn-beijing.aliyuncs.com/%E6%84%8F%E5%A4%A7%E5%88%A9-hevcmp4.mp4","pic":"https://hans2936.github.io/2018/06/19/EuroTrip/Spring.jpg"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>
+
+<h2 id="日内瓦-因特拉肯-里斯本-马德里-巴塞罗那"><a href="#日内瓦-因特拉肯-里斯本-马德里-巴塞罗那" class="headerlink" title="日内瓦-因特拉肯-里斯本-马德里-巴塞罗那"></a>日内瓦-因特拉肯-里斯本-马德里-巴塞罗那</h2><p>2020年元旦，第三次欧洲行。（封面：里斯本）<br> <div id="dplayer2" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer2"),"theme":"#FADFA3","loop":true,"video":{"url":"https://hans-blog-video.oss-cn-beijing.aliyuncs.com/%E7%91%9E%E5%A3%AB%E8%A5%BF%E7%8F%AD%E7%89%99%E8%91%A1%E8%90%84%E7%89%99-hevcmp4.mp4","pic":"https://hans2936.github.io/2018/06/19/EuroTrip/Lisbon.jpg"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script></p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>旅行</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Github Pages(下)：使用Hexo博客生成工具</title>
+    <url>/2018/06/06/HexoLog/</url>
+    <content><![CDATA[<p>最近用 Hexo 搭建了工作网站，发现这个工具发文章就像是发朋友圈一样简单。虽然我以前用网页拼凑老网站，花了很多时间，但我还是决定换了，写作和发布体验还是很重要的。<br>我的理解是，这是一个自动生成静态（html+css+js）网站的工具，主题里是很多模块化的网页，可以通过.yml配置文件运用这些模块，把MarkDown(.md)博客批量转化为网页并且跟主页形成总分结构。<br>下面是我用Hexo搭建个人网站的过程和网站配置：</p>
+<p>首先，一切以<a href="https://hexo.io/zh-cn/index.html">Hexo官网</a>为准。</p>
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><ul>
+<li>正常使用Github的电脑。</li>
+<li>开了Github Pages的Repository。<br>如果不了解Github可以看<a href="https://hans2936.github.io/2017/10/21/PageBasic/">Github Pages(上)：一个最基础的个人网站</a>。<span id="more"></span></li>
+</ul>
+<h3 id="配置Hexo文件夹"><a href="#配置Hexo文件夹" class="headerlink" title="配置Hexo文件夹"></a>配置Hexo文件夹</h3><p>在mac上安装 Node&#x2F;Npm</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">brew update</span><br><span class="line">brew install node</span><br></pre></td></tr></table></figure>
+<p>（windows&#x2F;linux用户参见<a href="https://hexo.io/zh-cn/docs/">此官方教程</a>）</p>
+<p>安装 Hexo</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo -g</span><br><span class="line">hexo init blog</span><br><span class="line">cd blog</span><br><span class="line">npm install</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<p>这时博客就在本地生成了。访问<code>http://localhost:4000</code> 可以看效果。<br>可以说Hexo是很强大的，默认主题网站结构合理，适配手机，搜索栏（google）也有了。只需要优化（改一下失效的链接，添加评论，RSS等模块）就行了。</p>
+<p>（2021年6月更新：node的版本不能太高，不然会出现localhost可以看，但生成网页为空的问题）</p>
+<h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><ul>
+<li><code>hexo g</code> 生成&#x2F;public 文件夹，里面是网站</li>
+<li><code>hexo d</code> 把这个网站文件夹推送到服务器</li>
+<li><code>hexo clean</code> 删除网站文件夹</li>
+<li><code>hexo s</code> 本地查看效果</li>
+</ul>
+<h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><p>配置文件是两个，第一个是根目录的 <code>_config.yml</code>。重要配置有</p>
+<ul>
+<li>language: zh-CN 是中文，不写是英文</li>
+<li>url: <a href="https://hans2936.github.io/">https://hans2936.github.io</a> （网站地址）</li>
+<li>root: &#x2F; (根目录在哪里，github就写斜杠，有些服务器会多一层路径)</li>
+<li>skip_render: README.md 这样可以在 &#x2F;source 里面放一个 README.md，推送的时候自动传到 Github 上面</li>
+<li>theme: landscape 这里可以换主题</li>
+</ul>
+<p>推送设置 (GitHub)</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: https://github.com/hans2936/hans2936.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<p>如果网站在服务器上，则可以用 rsync</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: rsync</span><br><span class="line">  host: 服务器名</span><br><span class="line">  user: 用户名</span><br><span class="line">  root: 放网站的文件夹</span><br><span class="line">  port: 22</span><br></pre></td></tr></table></figure>
+<p>第二个配置文件，是主题的配置文件 <code>themes/landscape/_config.yml</code>，主要有导航栏(<code>menu</code>)，侧边栏(<code>widgets</code>)，网站图标(<code>favicon</code>)等。</p>
+<h3 id="写新文章"><a href="#写新文章" class="headerlink" title="写新文章"></a>写新文章</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new &quot;article name&quot;</span><br></pre></td></tr></table></figure>
+<p>这条命令会在<code>source/_posts</code>产生新文件，然后改改文件名，在进入编辑MarkDown就行了。</p>
+<p>每篇文章最上面是配置区，能用到的主要是</p>
+<ul>
+<li>title: 题目</li>
+<li>date: 日期 （会影响在主页的顺序）</li>
+<li>tags: 标签</li>
+<li>categories: 分类</li>
+<li>updated: 修改日期</li>
+</ul>
+<p>配置区下面就随便写了。值得一提的是，文章正文是支持html语言的，这样特殊字体和元素就可以直接加进去。</p>
+<h3 id="创建页面"><a href="#创建页面" class="headerlink" title="创建页面"></a>创建页面</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new page about</span><br></pre></td></tr></table></figure>
+<p>会在 <code>source/about</code> 里面产生新文件，跟文章是一样编辑的。<br>然后再从主题配置的导航栏里面加上这一页。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">menu:</span><br><span class="line">  ...</span><br><span class="line">  关于: /about</span><br></pre></td></tr></table></figure>
+<h3 id="引用图片"><a href="#引用图片" class="headerlink" title="引用图片"></a>引用图片</h3><p>执行 <code>npm install hexo-asset-image --save</code><br>然后，主配置文件 <code>_config.yml</code> 设置为</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">post_asset_folder: true</span><br></pre></td></tr></table></figure>
+<p>这个时候创建新文章就会产生一个同名文件夹，把图片放入即可。<br>然后在文章正文这样引用放进去的图片。 </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![图片描述](文章名/图片名)</span><br></pre></td></tr></table></figure>
+
+<h3 id="引用视频文件"><a href="#引用视频文件" class="headerlink" title="引用视频文件"></a>引用视频文件</h3><p>对某个链接中的视频文件，可以执行 <code>npm install hexo-tag-dplayer</code><br>这是一个播放器插件，使用时在文章中加入：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% dplayer &quot;url=&quot;  &quot;pic=&quot; &quot;loop=yes&quot; &quot;theme=#FADFA3&quot; &quot;autoplay=false&quot; &quot;token=tokendemo&quot; %&#125;</span><br></pre></td></tr></table></figure>
+<p>其中 <code>url</code> 是视频地址，<code>pic</code> 是缩略图地址。</p>
+<p>这个方法是引入视频的最佳方法，但是需要一个地方来存放这些文件（url）。<br>Github只有1G太少了，可以考虑使用<a href="https://oss.console.aliyun.com/">阿里云oss存储</a>，淘宝账户就能开，还很便宜。</p>
+<h3 id="引入第三方视频"><a href="#引入第三方视频" class="headerlink" title="引入第三方视频"></a>引入第三方视频</h3><p>对视频网站上的视频，可在Markdown文件中明码使用html语言 <code>iframe</code>，比如</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;selfadapting-video&quot;&gt;</span><br><span class="line">&lt;iframe src=&quot;&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>其中<code>class=&quot;selfadapting-video&quot;</code> 是一个自适应长宽比例的容器，具体看<a href="https://angeltime.cc/archives/685.html">这篇博客</a>。</p>
+<h3 id="创建侧边栏"><a href="#创建侧边栏" class="headerlink" title="创建侧边栏"></a>创建侧边栏</h3><p>比如在 <code>themes/landscape/layout/_widget/</code> 创建一个 about.ejs</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;% if (site.tags.length)&#123; %&gt;</span><br><span class="line">  &lt;div class=&quot;widget-wrap&quot;&gt;</span><br><span class="line">    &lt;h3 class=&quot;widget-title&quot;&gt;About&lt;/h3&gt;</span><br><span class="line">    &lt;div class=&quot;widget&quot;&gt;</span><br><span class="line">      E-mail: xyz@123.com</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+<p>然后在主题配置的侧边栏中加上：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">widgets:</span><br><span class="line">- ...</span><br><span class="line">- about</span><br></pre></td></tr></table></figure>
+
+<h3 id="RSS-订阅"><a href="#RSS-订阅" class="headerlink" title="RSS 订阅"></a>RSS 订阅</h3><p>执行 <code>npm install hexo-generator-feed</code> 下载rss功能包，<br>然后在主配置文件 <code>_config.yml</code> 里面加上</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">plugin:</span><br><span class="line">- hexo-generator-feed</span><br><span class="line">feed:</span><br><span class="line">type: atom</span><br><span class="line">path: atom.xml</span><br><span class="line">limit: 20</span><br></pre></td></tr></table></figure>
+<p>然后在主题配置文件里加上 <code>rss: /atom.xml</code>。</p>
+<p>网上的教程都是这样的，但是当我实际加入的时候，发现rss软件里面的图片都是空的。<br>后来我找到了这个<a href="https://github.com/atika/hexo-generator-feed">Fork of hexo-generator-feed</a>，用它来替换官方的包，然后去掉包里面 <code>atom.xml</code> 里面的 <code>cdata</code>就可以了。<br>这个包还剩下一个bug是当程序框里的某一行code过长(出现左右拖动的功能后)，rss显示的code字体过大，但是不涉及编程的文章就没有问题了。</p>
+<h3 id="站点地图"><a href="#站点地图" class="headerlink" title="站点地图"></a>站点地图</h3><p>类似上一条，执行 <code>npm install hexo-generator-sitemap --save</code><br>主配置文件添加：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Sitemap </span><br><span class="line">sitemap:</span><br><span class="line">    path: sitemap.xml</span><br></pre></td></tr></table></figure>
+<p>然后提交给 Google Search Console 就行了。</p>
+<h3 id="高级修改-评论，分享"><a href="#高级修改-评论，分享" class="headerlink" title="高级修改 (评论，分享)"></a>高级修改 (评论，分享)</h3><p>Hexo的网页其实是被拆开成很多零件的，主要在<code>themes/landscape/layout/_partial/</code>，<br>当在网页中加入一个新的模块时，比如对评论系统Gitment来说（关于Gitment见<a href="https://imsun.net/posts/gitment-introduction/">此教程</a>），首先要打开 <code>head.ejs</code> 引用js, css文件（需放入<code>themes/landscape/source</code>）</p>
+<p>（2019年12月更新：忽然发现Gitment不能用了，通过查看Gitment的Github项目<a href="https://github.com/imsun/gitment/issues/188">Gitment issue 188</a>解决了问题。又发现出现了类似的工具Gitalk。）</p>
+<p> (2020年4月更新：发现上次解决方案重新push的时候还是有bug，改用 <a href="https://github.com/gitalk/gitalk/blob/master/readme-cn.md">Gitalk</a> 了，另外在外网，<a href="https://disqus.com/">Disqus</a>是可以用的。)</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;/css/gitment.css&quot;&gt;</span><br><span class="line">&lt;script src=&quot;/js/gitment.browser.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>然后在 <code>article.ejs</code> 里面加上 Gitment 的code</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;% if (!index &amp;&amp; post.comments)&#123; %&gt;</span><br><span class="line">  &lt;section id=&quot;comments&quot;&gt;</span><br><span class="line">  &lt;div id=&quot;gitment&quot;&gt;&lt;/div&gt;</span><br><span class="line">      &lt;script&gt;</span><br><span class="line">      const gitment = new Gitment(&#123;</span><br><span class="line">        id: &#x27;&lt;%= post.date %&gt;&#x27;,</span><br><span class="line">        owner: &#x27;username&#x27;,</span><br><span class="line">        repo: &#x27;username.github.io&#x27;,</span><br><span class="line">        oauth: &#123;</span><br><span class="line">        client_id: &#x27;---yourID---&#x27;,</span><br><span class="line">        client_secret: &#x27;---yourKey---&#x27;,</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;)</span><br><span class="line">      gitment.render(&#x27;gitment&#x27;)</span><br><span class="line">      &lt;/script&gt;</span><br><span class="line">  &lt;/section&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+<p>就实现这个第三方功能了。注意 <code>id: &#39;&lt;%= post.date %&gt;&#39;</code> 这句话是为了修复网页路径过长不能显示评论的bug (在手机app内分享网页很容易出现长后缀)。</p>
+<p>主题自带的功能也可以改，比如说分享功能可以在<code>themes/landscape/source/js/script.js</code>加一句，</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#x27;&lt;a href=&quot;http://service.weibo.com/share/share.php?&amp;title=&#x27; + encodedUrl + &#x27;&quot; class=&quot;article-share-sina&quot; target=&quot;_blank&quot; title=&quot;微博&quot;&gt;&lt;/a&gt;&#x27;</span><br></pre></td></tr></table></figure>
+<p>然后找到<code>themes/landscape/source/css/_partial/article.styl</code> 比照着定义一个 <code>.article-share-sina</code> 就可以了。</p>
+<p>像这种高级修改，对有一定网页知识的人来说有无限可能，自己做一个主题都是可以的。</p>
+<h2 id="本站的Hexo设置"><a href="#本站的Hexo设置" class="headerlink" title="本站的Hexo设置"></a>本站的Hexo设置</h2><ul>
+<li>默认主题 Landscape。</li>
+<li>抬头图片位置<code>banner.jpg</code>：我家的猫。</li>
+<li>评论系统为Gitment，需要引用<code>gitment.css</code>, <code>gitment.broser.js</code>， 并编辑 <code>article.ejs</code> 和 <code>head.ejs</code>。</li>
+<li>分享按钮为自带按钮，包括Sina（改 <code>script.js</code> 和 <code>article.styl</code>）。</li>
+<li>jquery.min.js 路径从google改为 <a href="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js">https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js</a> (改 <code>after-footer.ejs</code>)。</li>
+<li>从 NexT 主题移植而来的本地搜索引擎，见下文。</li>
+</ul>
+<h1 id="补充篇：NexT本地搜索引擎的移植"><a href="#补充篇：NexT本地搜索引擎的移植" class="headerlink" title="补充篇：NexT本地搜索引擎的移植"></a>补充篇：NexT本地搜索引擎的移植</h1><p>Hexo 默认的 Landscape 主题其实已经很好了，可以说简明美观，网页上的元素也不难添加。<br>但是美中不足的就是用了谷歌搜索引擎，谷歌在国内打不开就不说了，而且用外部搜索引擎本来也不如站内搜索便捷实用。<br>后来我发现 NexT 主题是有站内搜索功能的，就试着把这个功能移植了进来。</p>
+<h2 id="本地搜索的原理"><a href="#本地搜索的原理" class="headerlink" title="本地搜索的原理"></a>本地搜索的原理</h2><p>对于动态网站来说，可以通过 php 实现。<br>但是，GitHub博客是静态网站，用不了 php，导致我在老网站只能把google搜索结果页内置到了网站里面 （Landscape也用了谷歌）。</p>
+<p>NexT 主题实现这个功能，用了 Hexo 的拓展包 <code>hexo-generator-searchdb</code>，它预先生成了一个文本库<code>search.xml</code>，然后传到了网站里面 。在本地搜索的时候，NexT直接用javascript调用了这个文件，从而实现了静态网站的本地搜索。</p>
+<h2 id="准备工作-1"><a href="#准备工作-1" class="headerlink" title="准备工作"></a>准备工作</h2><p>首先把产生文本库的包安装好，执行 <code>npm install hexo-generator-searchdb --save</code>。<br>然后在主配置文件 <code>_config.yml</code>里面加上</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  format: html</span><br><span class="line">  limit: 10000</span><br></pre></td></tr></table></figure>
+<p>并且在主题配置文件加上</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">local_search:</span><br><span class="line">  enable: true</span><br><span class="line">  trigger: auto</span><br><span class="line">  top_n_per_article: 1</span><br></pre></td></tr></table></figure>
+<p>其中<code>trigger</code>表示搜索结果会不会打字时自动显示，<code>top_n_per_article</code> 表示每篇文章最多显示几条结果（-1为不限数字）。<br>这些只是准备工作，在把代码放到Landscape 之前，这些设置不会起任何作用。</p>
+<h2 id="NexT-主题的本地搜索代码"><a href="#NexT-主题的本地搜索代码" class="headerlink" title="NexT 主题的本地搜索代码"></a>NexT 主题的本地搜索代码</h2><p>NexT 主题的 local-search 主要是下面几个模块组成的：</p>
+<ul>
+<li>核心javascript脚本：<a href="https://github.com/iissnan/hexo-theme-next/blob/master/layout/_third-party/search/localsearch.swig">localsearch.swig</a></li>
+<li>css配置文件：<a href="https://github.com/iissnan/hexo-theme-next/blob/master/source/css/_common/components/third-party/localsearch.styl">localsearch.styl</a></li>
+<li>搜索框：<a href="https://github.com/iissnan/hexo-theme-next/blob/master/layout/_partials/search/localsearch.swig">另一个localsearch.swig</a></li>
+<li>在header中添加链接：<a href="https://github.com/iissnan/hexo-theme-next/blob/master/layout/_partials/header.swig">header.swig</a></li>
+</ul>
+<p>Landscape主题的后缀有所不同（不是.swig， 而是.ejs），这几个文件copy过来之后需要稍微改一下语法，几个图标也需要重新定义，细节如下。</p>
+<h2 id="移植步骤"><a href="#移植步骤" class="headerlink" title="移植步骤"></a>移植步骤</h2><h3 id="定义”搜索”，”关闭”，”无结果”等图标"><a href="#定义”搜索”，”关闭”，”无结果”等图标" class="headerlink" title="定义”搜索”，”关闭”，”无结果”等图标"></a>定义”搜索”，”关闭”，”无结果”等图标</h3><p>NexT 大量使用了 <code>&lt;i class = &quot;fa abc&quot;&gt; &lt;/i&gt;</code> 这样的方式来引用 FontAwesome 图标，但是 Landscape 却不支持这么用。<br>所以一开始不得不定义一些图标，在主题文件夹 <code>themes/landscape/</code> 的 <code>/source/css/</code> 下面找个地方 （比如说<code>_partial/header.styl</code>），定义：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#icon-close:before &#123;</span><br><span class="line">  font-family: FontAwesome;</span><br><span class="line">  content: &quot;\f146&quot;;</span><br><span class="line">  font-size: x-large</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样就定义了一个关闭搜索框的图标。移植的时候重新定义图标为<code>&lt;span id=&quot;icon-close&quot;&gt;&lt;/span&gt;</code> 就可以了。<br>新定义的图标主要是搜索 <code>\f002</code>，关闭<code>\f146</code>，和无结果 <code>\f119</code>。</p>
+<h3 id="放入调出搜索框的链接"><a href="#放入调出搜索框的链接" class="headerlink" title="放入调出搜索框的链接"></a>放入调出搜索框的链接</h3><p>首先进入主题文件夹的<code>/layout/_partial/header.ejs</code> ，那里默认有一个搜索链接（<code>id=&quot;nav-search-btn&quot; class=&quot;nav-icon&quot;</code>）。<br>把这个链接扩展为：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;% if(!theme.local_search.enable) &#123; %&gt;&lt;a id=&quot;nav-search-btn&quot; class=&quot;nav-icon&quot; title=&quot;&lt;%= __(&#x27;search&#x27;) %&gt;&quot;&gt;&lt;/a&gt;&lt;% &#125; %&gt;</span><br><span class="line">&lt;% if(theme.local_search.enable) &#123; %&gt;&lt;a href=&quot;javascript:;&quot; class=&quot;popup-trigger nav-icon&quot; id=&quot;nav-search-btn&quot;&gt;&lt;/a&gt;&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+<p>这也就意味着用主题配置中的 <code>local_search.enable</code> 来控制搜索功能了，打开本地搜索的情况下，搜索链接会启动<code>class=&quot;popup-trigger&quot;</code>，也就打开了本地搜索引擎。</p>
+<h3 id="放入搜索框"><a href="#放入搜索框" class="headerlink" title="放入搜索框"></a>放入搜索框</h3><p>还是着刚才的文件<code>header.ejs</code>，可以在最后一行<code>&lt;/header&gt;</code>前面加上</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;% if(theme.local_search.enable) &#123; %&gt;&lt;div class=&quot;local-search-inner&quot;&gt;&lt;%- partial(&#x27;search&#x27;) %&gt;&lt;/div&gt;&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+<p>其中 <code>&lt;%- partial(&#39;search&#39;) %&gt;</code> 指向了 <code>search.ejs</code>，这个文件也就是 NexT 的搜索框<a href="https://github.com/iissnan/hexo-theme-next/blob/master/layout/_partials/search/localsearch.swig">另一个localsearch.swig</a>了。<br>把它拷贝成<code>search.ejs</code> 跟 <code>header.ejs</code> 放在一起，但是图标要全部换成适配Landscape的定义。另外直接明码写上<code>placeholder=&quot; 本地搜索...&quot;</code> 就可以了。</p>
+<h3 id="放入核心-javascript"><a href="#放入核心-javascript" class="headerlink" title="放入核心 javascript"></a>放入核心 javascript</h3><p>把<a href="https://github.com/iissnan/hexo-theme-next/blob/master/layout/_third-party/search/localsearch.swig">localsearch.swig</a>放入<code>/layout/_partial/</code>, 并且命名为<code>localsearch.ejs</code>。<br>然后在<code>/layout/layout.ejs</code>的最后，<code>&lt;/body&gt;</code> 的上一行引用这个文件 <code>&lt;%- partial(&#39;_partial/localsearch&#39;) %&gt;</code>。<br>这个目的是在每一个网页的最下方加入这一段 javascript。</p>
+<p>然后就要改这个文件了， 要改的有三项：</p>
+<ul>
+<li>图标<br>跟刚才一样，凡是带<code>class=&quot;fa abc&quot;</code> 的图标都要重新定义成适配Landscape的。</li>
+<li>语法<br>改成 <code>localsearch.ejs</code> 之后，这个脚本里面的两类语法要改。 一是if..else..要这样用：<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;% if (theme.local_search.enable)&#123; %&gt;&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+二是config要这样调用（注意有个等号）：<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">var search_path = &quot;&lt;%= config.search.path %&gt;&quot; ;</span><br></pre></td></tr></table></figure>
+大概一共三四处要改，主要是config能读到就可以了。</li>
+<li>搜索框的位置<br>这个脚本里面有一处容易坑的地方，就是这一行<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$(&#x27;.popup&#x27;).detach().appendTo(&#x27;.header-inner&#x27;);</span><br></pre></td></tr></table></figure>
+注意这个<code>.header-inner</code>是搜索框的位置，是要根据情况改的。比如我刚才在<code>header.ejs</code>定义的是<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;local-search-inner&quot;&gt;&lt;%- partial(&#x27;search&#x27;) %&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+那就要把<code>.header-inner</code> 改为 <code>.local-search-inner</code> 了。</li>
+</ul>
+<h3 id="放入渲染文件，取消阴影背景"><a href="#放入渲染文件，取消阴影背景" class="headerlink" title="放入渲染文件，取消阴影背景"></a>放入渲染文件，取消阴影背景</h3><p>渲染文件也是必须的，可以把 <a href="https://github.com/iissnan/hexo-theme-next/blob/master/source/css/_common/components/third-party/localsearch.styl">localsearch.styl</a> 放入 <code>/source/css/_partial/</code><br>然后在主渲染文件<code>/source/css/style.styl</code>中，注意加上 <code>@import &quot;_partial/localsearch&quot;</code> 就可以了。 </p>
+<p>不知道什么原因，这个搜索引擎的阴影背景<code>.local-search-pop-overlay</code> 总是会出现在最上方，导致搜索框出来之后根本点不到。我直接给它设置 <code>z-index: auto</code> ，跳过了这个问题。</p>
+<p>这个文件是大部分元素的渲染文件，可以用来调整图标位置，placeholder文字的大小等等，这都是细节了。</p>
+<h3 id="把原先的搜索功能关掉"><a href="#把原先的搜索功能关掉" class="headerlink" title="把原先的搜索功能关掉"></a>把原先的搜索功能关掉</h3><p>原先的搜索能在 <code>source/js/script.js</code> 里面，把这一段code移到 <code>localsearch.ejs</code> 里面，然后用一个</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;% if (!theme.local_search.enable)&#123; %&gt;&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+<p>来控制就可以了。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>最终搜索的效果截图在这里：<br><img src="/2018/06/06/HexoLog/HexoSearch.jpg" alt="本地搜索的效果"><br>其实直接用 NexT 就好了，不过自己编辑主题可以趁机学习一下。毕竟还是成功了。<br>有一点很重要的是，自己编辑主题是免不了要debug的，要善用谷歌浏览器的检查功能（以及最简单的输出 <code>console.log()</code>，或者其他工具的同类功能）。</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>个人网站</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Github Pages(上)：个人网站和简单插件</title>
+    <url>/2017/10/21/PageBasic/</url>
+    <content><![CDATA[<p>一直想做个博客网站，去网上查了一下，最先查出来的是云服务器+WordPress，不过又要买服务器，又要买域名，还得备案。<br>后来发现每个Github账户都可以开一个自己的静态网站（域名为 username.github.io），非常简单。<br>静态网站的定义参见<a href="https://zh.wikipedia.org/wiki/%E7%BD%91%E9%A1%B5%E8%AE%BE%E8%AE%A1">维基百科-网页设计</a>，虽然方便，但是也有一些功能上的限制，最显著的特点就是不能运行php和asp，不能自动读写站内的文件。<br>不过静态网页依然可以实现个人博客需要的所有功能，而我也只是学习一下做网页、博客什么的，这个方案已经是最好的了。</p>
+<p>这篇博客介绍搭建一个基于html的网站框架的过程。</p>
+<h2 id="拥有并了解Github-账户"><a href="#拥有并了解Github-账户" class="headerlink" title="拥有并了解Github 账户"></a>拥有并了解Github 账户</h2><h3 id="第一步-注册"><a href="#第一步-注册" class="headerlink" title="第一步 注册"></a>第一步 注册</h3><p>没啥好说的，进入<a href="https://github.com/">https://github.com</a>，然后注册一个账户就可以了。</p>
+<span id="more"></span>
+
+<h3 id="第二步-确保可以自由地创建-修改-下载-上传一个库（repository）"><a href="#第二步-确保可以自由地创建-修改-下载-上传一个库（repository）" class="headerlink" title="第二步 确保可以自由地创建&#x2F;修改&#x2F;下载&#x2F;上传一个库（repository）"></a>第二步 确保可以自由地创建&#x2F;修改&#x2F;下载&#x2F;上传一个库（repository）</h3><p>网页是由很多html，css，js等文件组成的，对github pages来说，一个repository就是存放这些文件的文件夹，所以确保可以随心所欲的管理一个库是最基本的。</p>
+<p>这里是第一个官方教程：<a href="https://guides.github.com/activities/hello-world/">GitHub:Hello world</a>。可以通过按钮来理解一个库的构造和维护，不过这只能让你创建修改一个Readme文件。<br>这里你会意识到每个库是可以创建分支(branch)的，实际操作中，如果对版本要求没那么严格（做个网页而已），你可以忽略branch的存在，只用master一个默认branch即可。</p>
+<p>这个时候你已经可以用网页看到这么一个库了，到这一步你的库可能只有一个Readme：</p>
+<p>Github的关键就是可以用Git来控制（<a href="https://zh.wikipedia.org/wiki/Git">维基百科-Git</a>），这是一个版本工具（我的理解是一个每次上传都备份一个版本，并且可以协调多人同时修改的公用网盘）。当在确定自己的终端可以使用 <code>git --version</code> 命令（Mac+Xcode自带），并且安装了SSH-Key 之后，你就可以使用如下的基本命令来控制你的库了：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone 你的SSH地址 （下载你的reposity，这个地址可以用网页浏览的Clone-or-Download-use SSH按钮看到，比如说git@github.com:uername/reposity.git）</span><br><span class="line">git pull （联系服务器，更新本地文件夹）</span><br><span class="line">git add --all （写入本地的所有新文件）</span><br><span class="line">git commit -am &quot;随便说点啥&quot; （在本地进行一次有记录地更新，包括本地所有文件的修改）</span><br><span class="line">git push origin master （把本地的更新推送到服务器）</span><br></pre></td></tr></table></figure>
+
+<p>SSH-Key决定了你的电脑有没有权限进行这些操作，这里有另一个官方教程：<a href="https://help.github.com/articles/connecting-to-github-with-ssh/">GitHub:SSH</a>，这个是必须一步步跟下来的，Mac的重要命令包括：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ls -al ~/.ssh (查一下是不是已经有key了)</span><br><span class="line">ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot; （产生一个key，不单独设密码的话一路回车就行）</span><br><span class="line">pbcopy &lt; ~/.ssh/id_rsa.pub （把你的key复制到粘贴板，不这么复制可能太长了复制不下来）</span><br></pre></td></tr></table></figure>
+<p>Linux和Windows进入刚才的教程看就行，如下图，在点击“右上角头像”+“Settings”+“SSH and GPG Keys” 这里添加了你刚刚复制的public Key之后，你就有权限进行上述的Git操作了。</p>
+<h2 id="搭建Github-Page网站"><a href="#搭建Github-Page网站" class="headerlink" title="搭建Github Page网站"></a>搭建Github Page网站</h2><h3 id="第一步-创建一个Github-Pages-repository"><a href="#第一步-创建一个Github-Pages-repository" class="headerlink" title="第一步 创建一个Github Pages repository"></a>第一步 创建一个Github Pages repository</h3><p>GitHub Pages repository跟普通的repository是一样的，唯一的区别就是他的名字必须叫做username.gihub.io。这个官方教程 <a href="https://pages.github.com/">GitHub Pages</a> 写的十分好懂，按这个做完之后你就有了一个你的网址 username.github.io，里面有一句 Hello World！</p>
+<h3 id="第二步-最基础的网站框架"><a href="#第二步-最基础的网站框架" class="headerlink" title="第二步 最基础的网站框架"></a>第二步 最基础的网站框架</h3><p>现在离一个好网站只差一步了，就是把某个好网站的所有文件拷贝到你的文件夹里面。<br>GitHub官方建议你使用博客生成工具 <a href="https://help.github.com/articles/using-jekyll-as-a-static-site-generator-with-github-pages/">Jekyll</a> 。GitHub在库的设置里面还提供Jekyll主题选择。而我的博客使用了<a href="https://hexo.io/zh-cn/">Hexo</a>生成工具，具体见我的博客<a href="https://hans2936.github.io/2018/06/06/HexoLog/">Github Pages(下)：使用Hexo博客生成工具</a>。<br>强烈推荐使用网站工具，这样可以直接用markdown格式编辑文章，而且使用简单的命令实现预览，生成和发布，从而节省大量的时间。</p>
+<p>我一开始并不了解博客工具，所以去了一个模版网站 <a href="https://html5up.net/">HTML5 UP</a>，然后下载了其中一个模版，直接在本地打开 index.html，就看到了网站预览，如图：</p>
+<p><img src="/2017/10/21/PageBasic/PageBasic.jpg" alt="朴素的网页模版"></p>
+<p>然后我再手动<code>git add</code> 所有的文件到我的网站中。当你<code>git push</code>之后，你的域名就会变成这样一个网站了。这也就是一个最基础的网站了。<br>不用博客工具的好处是有利于学习网页知识，当博客不多的时候，对习惯使用bash+vim的人来说，这样编辑网站是可以接受的。坏处是写一个博客就多一个html，如果有比如超过50篇博客，每篇博客的公共部分就很麻烦了。</p>
+<h3 id="第三步-开始发挥吧"><a href="#第三步-开始发挥吧" class="headerlink" title="第三步 开始发挥吧"></a>第三步 开始发挥吧</h3><p>不管是使用博客工具，还是直接手动添加html，都离不开对 html&#x2F;css&#x2F;JavaScript的基本理解。比如上述简单的网站模版，很多按钮，搜索框等都是空的，需要简单的填充。而即使用了博客工具，想要添加“关于”，或者侧边栏等各种元素，也是需要运用网页语言的。<br>下面就是自由发挥了，继续进入<a href="https://hans2936.github.io/2018/06/06/HexoLog/">Github Pages(下)：使用Hexo博客生成工具</a>使用博客生成工具吧。</p>
+<h1 id="补充篇：个人网站的功能插件"><a href="#补充篇：个人网站的功能插件" class="headerlink" title="补充篇：个人网站的功能插件"></a>补充篇：个人网站的功能插件</h1><p>上文我们已经介绍了怎样用Github Pages做出一个网站框架，例如完全重复出 <a href="https://html5up.net/">HTML5 UP</a> 网站上的某个模版。在熟悉该模版之后，你就已经可以编写博客页(html)，并且链接到首页了。甚至可以有出色的排版与配图。</p>
+<p>但对一个博客网站来说这样还不够，很多互动功能也是需要手动添加、单独理解的，包括评论框、搜索栏、点击量计数、分享按钮、网站导航、网页排版和图片滚动等。</p>
+<p>这一篇文章是一个大合集，总结我曾经见到的个人网站互动功能，以及各个解决方案的优劣。</p>
+<p>注意：虽然列出了这么多插件，但是这些只是技术储备，如果你是一个网站新手，建议先阅读<a href="https://hans2936.github.io/2018/06/06/HexoLog/">Github Pages(下)：使用Hexo博客生成工具</a>。</p>
+<h2 id="搜索功能"><a href="#搜索功能" class="headerlink" title="搜索功能"></a>搜索功能</h2><p>搜索功能包括两部分，一是在站内快速找到某一篇博客，这个方便网站的使用；二是在站外的搜索引擎上可以查到你的博客，这个有助于网站的推广。然而我在选择搜索工具的时候发现静态网站是无法自己写站内引擎的，所以我的搜索功能就暂时借助第三方（谷歌）实现了。<br>(注：这篇文章写的早，Hexo的那篇中，已经搞定了站内搜索。)</p>
+<h3 id="php站内搜索的失败尝试"><a href="#php站内搜索的失败尝试" class="headerlink" title="php站内搜索的失败尝试"></a>php站内搜索的失败尝试</h3><p>在站内搜索到某个文件，直接写一段PHP遍历本站文件是最靠谱的，所以我就搜到了一位大神写的code（<a href="http://www.moon-soft.com/download/info/1492.htm">月光软件文章</a>）。但是这段code有两个函数（<code>eregi</code>和<code>split</code>）在PHP7 过期了。所以我修改了一下（使用<code>preg_match</code>和<code>explode</code>），成了这个文件<a href="https://github.com/hans2936/Hans_Blog_Old/blob/master/search.php">search.php</a>。<br>使用的时候，只要在网页中调用这个search.php就可以了，比如说</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;form method=&quot;GET&quot; action=&quot;search.php&quot;&gt;</span><br><span class="line">&lt;input type=&quot;text&quot; name=&quot;keyword&quot; placeholder=&quot;PHP站内搜索&quot; /&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这个搜索引擎目前的效果是简单的列出全部搜出来的文件链接，在这个效果上美化一下就可以了。</p>
+<p>在测试PHP文件的时候，必须要打开本地Web服务，启动方法（Mac）参见本文的“网页编辑后的预览”一节。</p>
+<p>不成功的原因是显然的，Github Pages是静态的，不能运行php程序。不过这段学习经历挺有意思。</p>
+<h3 id="谷歌自定义搜索"><a href="#谷歌自定义搜索" class="headerlink" title="谷歌自定义搜索"></a>谷歌自定义搜索</h3><p>引入谷歌自定义搜索有两个工作，一是建立一个自定义引擎（<a href="https://cse.google.com/">谷歌自定义搜索</a>），二是给谷歌提供网站信息（<a href="https://www.google.com/webmasters/tools">Google Search Console</a>）。<br>点击<a href="https://cse.google.com/">谷歌自定义搜索</a>，创建一个搜索引擎，然后在“外观”选项卡里就可以找到“保存并获取代码”按钮了。把这个代码加入你要显示结果的网页即可。<br>谷歌自定义引擎的搜索框有点丑，十有八九跟你的主题不一样，好在这个引擎也支持分页显示。本站的搜索功能就是用分页的方式实现的：首先选择一个分页的引擎主题，然后单独建立一个Search.html，加入刚才说的自定义引擎代码，然后在其他网页需要加入搜索框的地方输入一个原生主题的搜索框。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;form method=&quot;Get&quot; action=&quot;blogs/Search.html&quot;&gt;</span><br><span class="line">&lt;input type=&quot;text&quot; name=&quot;q&quot; id=&quot;s&quot; placeholder=&quot;站内Google&quot; /&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这样每次搜索就会跳转到搜索结果页了。当然也可以用“弹出”的主题，把<code>action</code>直接放到本页，就可以有直接在本页显示结果的效果。<br>给谷歌提供网站信息也是很重要的，这决定了谷歌搜索你网站时结果的质量。我首先在<a href="https://www.google.com/webmasters/tools">Google Search Console</a>注册了一个账户，添加本站，然后在管理界面的“抓取”、“站点地图”添加了一个写着本站所有网页地址的sitemap.txt文件，这样谷歌就知道本站以及各个网页的位置了（只添加站点不提交地图也行，这关系到谷歌爬取网页的效率)。</p>
+<p><img src="/2017/10/21/PageBasic/GoogleSite.jpg" alt="正确提交Sitemap之后"></p>
+<p>这个解决方案可以得到在网站内显示谷歌搜索结果的效果。但是当我频繁修改网站的时候，谷歌的滞后是很明显的。</p>
+<p>为了提高效果，还可以提交更多的信息给谷歌，包括一些关键词，这些我就没有深究了。</p>
+<h3 id="百度自定义搜索"><a href="#百度自定义搜索" class="headerlink" title="百度自定义搜索"></a>百度自定义搜索</h3><p>百度自定义搜索其实跟谷歌差不多，都包括自定义一个引擎加入网页（<a href="http://zn.baidu.com/cse/searchbox/">百度自定义搜索</a>），和为百度提供网站信息（<a href="http://zhanzhang.baidu.com/">百度站长工具</a>）两个步骤。这里就不赘述了。<br>但是百度跟Github Pages的兼容性似乎是有问题的，百度抓取github.io的效率明显比谷歌低很多（搜索同样的Github Pages网页就知道了，而且我把本站提交给百度没有效果）。所以本站的第三方搜索引擎还是选择了谷歌。</p>
+<h2 id="评论功能"><a href="#评论功能" class="headerlink" title="评论功能"></a>评论功能</h2><p>评论功能是博客的重要互动功能，但是评论是动态的，Github Pages是静态的，需要借助一个第三方服务来实现。</p>
+<h3 id="新浪评论框的失败尝试"><a href="#新浪评论框的失败尝试" class="headerlink" title="新浪评论框的失败尝试"></a>新浪评论框的失败尝试</h3><p>在网上搜了一下之后，我最先想到的解决方案是<a href="http://open.weibo.com/">微博开放平台</a>，因为微博几乎谁都有，从演示的效果来看，评论功能使用微博评论箱，再结合微博分享、微博赞按钮两个插件，就跟在微博内部评论是一样的了（甚至还有微博秀这种直接展示微博个人页的功能），等于把个人博客和微博社区结合起来了。</p>
+<p>作为官方插件，需要先申请一个Appkey。这件事有两个步骤，一是在<a href="http://open.weibo.com/">微博开放平台</a>申请一个账户，然后提交身份验证。二是在<a href="http://open.weibo.com/connect">微博开放平台：网站接入</a>接入你的网站，然后提交审核。<br>Github Pages显然是境外网站，不需要提供备案信息，只要选择境外网站的验证，把域名查询（<a href="http://whois.chinaz.com/">站长之家Whois查询</a>）和ip查询（<a href="http://www.iapolo.com/ip/">阿波罗ip查询</a>）的结果放到一张图片上上传就行了。<br>在网页中加入评论箱本身并不复杂，只要点击<a href="http://open.weibo.com/widget/comments.php">微博开放平台：评论箱</a>，然后把底部代码加入网页就行了。其他插件也是一样的，本地预览可以很快看到效果。</p>
+<p><strong>然而，微博插件在Github Pages是不能正常使用的。</strong>一开始我并不知道原因，后来用Chrome浏览器打开网页的时候，发现这些插件实际上是被浏览器安全政策阻止了。这对个人网站来说肯定是不可接受的，因为你不能要求访问者为了访问你的网站而修改浏览器设置。<br>进一步去查这些插件不安全的原因，就发现微博的插件是不支持https的，而现在Github Pages用的是https的域名。进入Github Pages库的设置，会发现这么一个无法更改的选项。</p>
+<blockquote>
+<p>Enforce HTTPS<br>— Required for your site because you are using the default domain (hans2936.github.io)</p>
+</blockquote>
+<p>也就是说除非我自己买一个域名，否则这个选项是不能修改的。再说好像没必要为了一个评论系统把网站从https改成http，这个方案也就搁浅了。</p>
+<h3 id="来必力"><a href="#来必力" class="headerlink" title="来必力"></a>来必力</h3><p>第二个方案是找一些专门提供评论服务的网站，我找到了现在比较流行的<a href="http://www.laibili.com.cn/city-demo">来必力</a>。<br>加入这个服务就比新浪评论箱简单多了。先注册一个账户，然后点击“体验”、“管理中心”，就可以看到代码了。<br>这个服务的好处是可以用国内所有的社交网站登陆（QQ、微信、微博），而且界面也很好看。<br>但是来必力有一个硬伤，就是加载速度太慢了。感觉博客前两段看完了这个插件还没加载出来，一开始我觉得无伤大雅，直到我发现这个评论框不加载完，本站的导航栏就弹不出来。这就有点影响体验了，所以这个方案也没使用。</p>
+<h3 id="Gitment"><a href="#Gitment" class="headerlink" title="Gitment"></a>Gitment</h3><p>最后我终于找了一个比较合适的评论系统：<a href="https://imsun.net/posts/gitment-introduction/">教程：Gitment</a>。<br>这个教程已经很详细了，唯一需要注意的是它跟search.php一样必须开本地Web服务器才能查看效果。<br>这个评论系统是直接把Github issues搬到你自己的网页。它有三个好处，第一个就是把Github pages和Github issues联系起来，这样连评论带网站都在一个库里面；第二个好处是Gitment是一个出色的评论框，支持markdown语法，还自带点赞；第三个好处是加载速度快。唯一的坏处就是只能使用Github账户评论，不过我觉得可以接受，因为本来就是技术性博客，提高评论门槛也未必是坏事。<br>所以这就是我网站的评论框解决方案了。</p>
+<p>（2019年12月更新：忽然发现Gitment不能用了，通过查看Gitment的Github项目<a href="https://github.com/imsun/gitment/issues/188">Gitment issue 188</a>解决了问题。又发现出现了类似的工具Gitalk。）</p>
+<p> (2020年4月更新：发现上次解决方案重新push的时候还是有bug，改用 <a href="https://github.com/gitalk/gitalk/blob/master/readme-cn.md">Gitalk</a> 了，另外在外网，<a href="https://disqus.com/">Disqus</a>是可以用的。)</p>
+<p><img src="/2017/10/21/PageBasic/Gitment.jpg" alt="Gitment的使用效果"></p>
+<h2 id="分享按钮"><a href="#分享按钮" class="headerlink" title="分享按钮"></a>分享按钮</h2><p>分享也是博客网站重要的互动功能。在国内比较重要的就是支持微信和微博的分享，尤其是微信。<br>本站的评论栏上面都有分享按钮，其中微信还可以扫码，这个功能来自于<a href="https://github.com/overtrue/share.js">Github:share.js</a>。这个Github文件夹的Readme有一个教程，不过我是把整个包下载下来，仔细看了一下demo网页，然后照搬到本站的。<br>现在这个分享按钮并不是腾讯或新浪提供的原生插件，对微博、QQ来说是跳转到一个分享页，对微信来说是在微信中打开本网址，进而实现分享的。因为有微博评论箱的经验，我也就不强求原生插件了，这个效果还可以。</p>
+<h2 id="计数"><a href="#计数" class="headerlink" title="计数"></a>计数</h2><p>在博客列表统计评论数、点击数、赞数可以让访问者快速找到比较火的文章。也可以为进一步排序提供依据。统计也是动态的，要借助一个第三方服务。<br>本站的博客都有一个点击量统计，这些数字是提供自<a href="http://busuanzi.ibruce.info/">网站:不蒜子</a>的。教程链接为<a href="http://ibruce.info/2015/04/04/busuanzi/">教程:不蒜子</a>，非常简单，粘贴里面的代码进入网页即可。这个统计分本站点击，本站访问人次和本页点击。<br>但是现在点击统计仅限于本页，没有传递到博客列表。另外，评论和赞的统计比点击数更有意义，Gitment应该可以做到但还没有官方的解决方案。这些以后再去开发吧。</p>
+<h2 id="网页设计"><a href="#网页设计" class="headerlink" title="网页设计"></a>网页设计</h2><h3 id="使用Markdown编辑网页博客"><a href="#使用Markdown编辑网页博客" class="headerlink" title="使用Markdown编辑网页博客"></a>使用Markdown编辑网页博客</h3><p>在写博客的时候，如果直接在html里面敲字体验并不好。因为要不断地敲一些<code>&lt;p&gt;</code>, <code>&lt;a&gt;</code>,  <code>&lt;li&gt;</code> 这些格式的开头和结尾。虽然latex写习惯了之后这也没什么，但是个人博客还有更轻松的办法来写，就是用Markdown编辑器。<br><a href="https://zh.wikipedia.org/wiki/Markdown">Markdown语法</a>是一个非常适合写日志的语法。我直接从App Store里面搜了一个编辑器，叫<a href="http://zh.mweb.im/">MWeb</a>，还是很好用的。写完之后可以直接导出为html格式，然后取其中正文部分粘贴到博客网页即可。这个过程只需要注意检查图片、列表等特殊部分跟网站模板的兼容性就行了。</p>
+<p>举例来说，Mweb支持数学公式的编辑和导出，这是用<a href="https://www.mathjax.org/">MathJax</a>来实现的。MWeb在导出html时会自动转换格式，但此时要注意检查网页的引用：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;&gt;&lt;/script&gt;</span><br><span class="line"> &lt;script type=&quot;text/x-mathjax-config&quot;&gt;MathJax.Hub.Config(&#123;TeX: &#123;equationNumbers: &#123; autoNumber: &quot;AMS&quot; &#125; &#125;&#125;);&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>更简单的就是使用Hexo等博客发布工具，这样省去了自己导出html，直接编辑好Markdown，再加一条<code>hexo g</code>命令就变成网页了。</p>
+<h3 id="网页编辑后的预览"><a href="#网页编辑后的预览" class="headerlink" title="网页编辑后的预览"></a>网页编辑后的预览</h3><p>网页预览的方式有四种：</p>
+<p>一，直接用浏览器打开html，这肯定是最快的。但是有些插件不能显示，比如不能测试上述的Gitment和search.php。但是大部分工作还是能胜任的。</p>
+<p>二， 使用<a href="https://zh.wikipedia.org/wiki/Adobe_Dreamweaver">Adobe Dreamweaver</a>这样的专业工具检查，我并没有开发太多功能，不过很重要的是检查网页的报错，以及批量查找&#x2F;替换某个词句。</p>
+<p>三， 打开本地Web服务器。这是能完美运行网站上所有插件，甚至可以测试动态模块的办法。具体步骤参见<a href="http://www.jianshu.com/p/d006a34a343f">简书博客:Mac OS X Web Server</a>。比较重要的命令就是<code>apachectl</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apachectl start</span><br><span class="line">sudo apachectl stop</span><br></pre></td></tr></table></figure>
+
+<p>启动<code>apachectl</code>后，把你的网站文件夹拷贝到<code>/Library/WebServer/Documents</code>，然后打开<code>http://127.0.0.1/网站文件夹</code>就可以了，博客里面还写了一些高级功能，如怎样更改路径和配置等。</p>
+<p>四，如果用了Hexo博客工具，一条<code>hexo s</code>命令就可以了。</p>
+<h2 id="图片滚动"><a href="#图片滚动" class="headerlink" title="图片滚动"></a>图片滚动</h2><h3 id="图片滚动插件"><a href="#图片滚动插件" class="headerlink" title="图片滚动插件"></a>图片滚动插件</h3><p>这个功能对博客来说可有可无，不过对于普通网站来说，宣传新闻，推销产品什么的还是很有用的。我觉得很有意思就留在首页了，循环播放本站的日志，这应该是本站唯一一个没那么朴素的效果。<br>本站的插件叫做<a href="https://github.com/Codeinwp/Nivo-Slider-jQuery">Nivo Slider</a>，用起来比较舒服，因为图片和图例是分开的，设置也很多。我试了好几个素材网站的插件都没有这个好。但是Nivo Slider有一个毛病是图片的尺寸最好都一样，而且不能太方正（我都是1920x960的图），否则电脑端还好，但在移动端会出现显示问题。</p>
+<p>点击链接<a href="https://github.com/Codeinwp/Nivo-Slider-jQuery">Github:Nivo Slider</a>，下载并学习demo就可以把它加入你的网页了。</p>
+<h3 id="手机滑动的实现"><a href="#手机滑动的实现" class="headerlink" title="手机滑动的实现"></a>手机滑动的实现</h3><p>Nivo Slider本身是不支持手机的，找那两个小按钮实在比较麻烦。所以我找到了一位高人的博客 <a href="http://willrees.com/2013/02/make-your-nivo-slider-touch-capable/">Will Rees</a>。他在里面讲了怎样利用一段支持手机滑动指令的代码 <a href="http://hammerjs.github.io/">Hammer.js</a>实现Nivo Slider的左右滑动。<br>用手机打开本站主页就可以看到效果了。不过因为我只是在Nivo Slider上面稍作修改，在手机上是只能左右滑动，不能手指悬停的。完美的解决方案可能是为手机单独找个插件。</p>
+<h2 id="回到顶部按钮"><a href="#回到顶部按钮" class="headerlink" title="回到顶部按钮"></a>回到顶部按钮</h2><p>在网页很长的时候，回到顶部按钮就很有用了。这个需要一段javascript code实现。我是在Google上随便找了一个，改了改图标和大小，也可以看文件<a href="https://github.com/hans2936/Hans_Blog_Old/blob/master/assets/js/back.js">back.js</a>。确定按钮图片的位置对之后，引用一下就可以了。</p>
+<h2 id="关于、版权"><a href="#关于、版权" class="headerlink" title="关于、版权"></a>关于、版权</h2><p>考虑到现在转载不署名的情况到处都是，在某个位置声明一下网站内容的版权也是有必要的。<br>在网页中加入版权声明其实很简单，只要进入版权网页<a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/">Creative Commons</a>，在这一页最下方点击“<a href="https://creativecommons.org/choose/results-one?license_code=by-nc-sa&amp;jurisdiction=cn&amp;version=3.0&amp;lang=zh">将这个授权协议使用在您自己的作品中</a>”就可以找到代码了，或者直接点这里的链接也行。</p>
+<p>这个证书是一个署名-可修改-非商业用途证书，如果你需要其他政策，也可以去Google其他证书的名字，基本上第一个弹出来的就是这些Createive Commons协议了。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>至此我总结完了学习过程中遇到的各种功能插件。我属于业余，很多细节还在学习中，相信会有更好的解决方案。</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>个人网站</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>秋水集</title>
+    <url>/2011/04/24/QiuShui/</url>
+    <content><![CDATA[<p>17-19岁的诗歌，择能看者七首</p>
+<h2 id="古息今叹（08年底）"><a href="#古息今叹（08年底）" class="headerlink" title="古息今叹（08年底）"></a>古息今叹（08年底）</h2><p>忙忙如春蚕，碌碌似秋茧</p>
+<p>一年不看月，韶华添发间</p>
+<p>欲效太白醉，体弱难成仙</p>
+<p>欲学卧龙睡，不免圣人言</p>
+<span id="more"></span>
+<p>镜里花颜改，水中月影斜</p>
+<p>身在沧浪水，心中又何怨</p>
+<hr>
+<p>男儿本自重横行，</p>
+<p>白首为功名，一怒为红颜</p>
+<p>红颜少知己，功名岂我愿</p>
+<p>愿离沧浪水，随风潜云烟</p>
+<p>庭下访空明，石上遇流泉</p>
+<hr>
+<p>犹忆当年月，月漫石阶前</p>
+<p>举目观长夜，眼下成新篇</p>
+<p>今日注旧诗，文采隔三年</p>
+<p>诗中许多情，竟似他人言</p>
+<p>至此不能思，起坐长咨嗟</p>
+<hr>
+<p><em>注1：高适《燕歌行》：男儿本自重横行，天子非常赐颜色</em></p>
+<p><em>注2：岳飞《小重山》：白首为功名，旧山松竹老，阻归程</em></p>
+<p><em>注3：吴伟业《圆圆曲》：恸哭六军俱缟素，冲冠一怒为红颜</em></p>
+<p><em>注4：《楚辞 渔父》：沧浪之水清兮，可以濯吾缨；沧浪之水浊兮，可以濯吾足</em></p>
+<p><em>注5：苏轼《记承天寺夜游》：庭下如积水空明，水中藻荇交横，盖竹柏影也</em></p>
+<p><em>注6：王维《山居秋瞑》：明月松间照，清泉石上流</em></p>
+<hr>
+<h2 id="雨夜（09年夏）"><a href="#雨夜（09年夏）" class="headerlink" title="雨夜（09年夏）"></a>雨夜（09年夏）</h2><p>秋水一场五月半，冷雨沧凉夜路难</p>
+<p>雨下纷纷情淡薄，想入霏霏雾颟顸</p>
+<p>流萤乱舞风吹伞，积水沾湿脚下乱</p>
+<p>重楼噩噩是归程，回首街灯雨阑珊</p>
+<hr>
+<h2 id="秋日歌（09年秋）"><a href="#秋日歌（09年秋）" class="headerlink" title="秋日歌（09年秋）"></a>秋日歌（09年秋）</h2><p>雁落平沙兮，水云潇潇</p>
+<p>四野黯然兮，八月秋高</p>
+<p>英雄几何兮，举杯一笑</p>
+<p>风急兮天高</p>
+<p>今朝而明朝</p>
+<hr>
+<p><em>注1：《平沙落雁》《潇湘水云》均为古琴曲</em></p>
+<p><em>注2：杜甫《登高》：风急天高猿啸哀，渚清沙白鸟飞回</em></p>
+<hr>
+<h2 id="咏琴（09年底）"><a href="#咏琴（09年底）" class="headerlink" title="咏琴（09年底）"></a>咏琴（09年底）</h2><p>我有杉木琴，尺寸合天道</p>
+<p>一月一镶嵌，一天一分毫</p>
+<p>五音传三籁，七弦闻九霄</p>
+<p>此曲关山月，风刀叶刃薄</p>
+<hr>
+<p><em>注1：古琴应用桐木、梓木。我的琴不贵，是杉木</em></p>
+<p><em>注2：古琴有十三个徽位，长三尺六寸五分。对应十三个月（含闰月）和365天</em></p>
+<p><em>注3：《关山月》为乐府旧题，李白亦作此诗，后世为李白诗作古琴曲</em></p>
+<hr>
+<h2 id="临江仙-月夜（10年初）"><a href="#临江仙-月夜（10年初）" class="headerlink" title="临江仙 月夜（10年初）"></a>临江仙 月夜（10年初）</h2><p>八面紫云挡不住，一轮头上高悬</p>
+<p>据称今年第一月</p>
+<p>阳魂金辉耀，阴魄水浸天</p>
+<hr>
+<p>病体凭栏一身醉，麻黄一碗苦甜</p>
+<p>清窗落地不耐冷</p>
+<p>南山层层雾，劝我早安歇</p>
+<hr>
+<p><em>注1：《西游记》三十六回：月至三十日，阳魂之金散尽，阴魄之水盈轮，故纯黑而无光，乃曰晦</em></p>
+<hr>
+<h2 id="大明湖边（10年初）"><a href="#大明湖边（10年初）" class="headerlink" title="大明湖边（10年初）"></a>大明湖边（10年初）</h2><p>我想去大明湖边</p>
+<p>倚着春风，看荡漾的水面</p>
+<p>阳光拂在我的肩膀</p>
+<p>柳芽就像金色的童年</p>
+<hr>
+<p>我想去大明湖边</p>
+<p>倚着石栏，看高飞的纸鸢</p>
+<p>欢歌笑语轻轻吹过</p>
+<p>水面上倒映着青青岁月</p>
+<hr>
+<p>我想去大明湖边</p>
+<p>带着你，和我的道歉</p>
+<p>夕阳下的一个吻</p>
+<p>可以铭记千年万年</p>
+<hr>
+<h2 id="十字路口（11年春）"><a href="#十字路口（11年春）" class="headerlink" title="十字路口（11年春）"></a>十字路口（11年春）</h2><p>我走到十字路口中央</p>
+<p>乱灯袭来、烈风冲撞</p>
+<p>一瞬间消失在四面八方</p>
+<p>你就在其中那辆车上</p>
+<hr>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>诗与散文</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>明镜与忘我</title>
+    <url>/2014/03/28/Wang/</url>
+    <content><![CDATA[<p>大学时的两篇散文，颇有童趣。</p>
+<h2 id="明镜篇（12年夏）"><a href="#明镜篇（12年夏）" class="headerlink" title="明镜篇（12年夏）"></a>明镜篇（12年夏）</h2><p>回家这些日，发现故乡没什么变化，而这一年发生了多少事，人一辈子的变化又何其多呢？希腊人问道：“我是谁？从哪里来？到哪里去？”但是看到《赤壁赋》里形容人的渺小，好比“寄蜉蝣于天地，渺沧海之一粟”。我们就知道这三问是多么令人悲伤了。</p>
+<p>人都是要死的，而且死得很快，“修短随化，终期于尽”。在有限的人生里，人追求功名利禄，追求幸福快乐，追求真理，追求艺术，但是“一朝春尽红颜老，花谢人亡两不知”，不管人追求了什么，不管这个追求高尚还是低俗，人一旦死了，追到的东西也就看不见了。孙悟空道：“似这般可得长生么？不能？不学！”岂不痛哉！</p>
+<p>于是“在逃去如飞的日子里，在千门万户的世界里”，人们惘然而追问，我是谁？我在哪？我为什么出现？我来这里做什么呢？</p>
+<span id="more"></span>
+
+<p>思考这个问题的人不计其数，法国人帕斯卡尔如是说：</p>
+<blockquote>
+<p>人只不过是一根芦苇，是自然界最脆弱的东西，但他是一根能思想的芦苇，用不着整个宇宙都拿起武器来毁灭他，一口气，一滴水，就足以致他死命了。然而…他知道自己要死亡，知道宇宙对他的优势，而宇宙对此却一无所知。</p>
+</blockquote>
+<p>虽然人与自然从来不是敌人，大自然也不想“致人死命”；但是这句话抓住了人最大的特点，说白了，就是会说话，会思考，能大自然所不能，所以自有他的用处。大自然需要人来替她表达，而人又渴望拥有自己的价值。于是石涛说“山川使予代山川立言也。”有了这层关系，大自然是活着的大自然，人是有意义的人。大家就各取所需，两全其美了。董其昌总结道：“诗以山川为境，山川亦以诗为境。”此言得之。</p>
+<p>所以最有用的人，是亲近自然的人。而我们总是亲近我们自己。我们过于亲近自己，就会喜怒无常，心有挂碍。曾国藩说“一身之屈伸，一家之饥饱，君子固不暇忧及此也。”这并非不暇，而是不智。如果少年好色，中年好斗，老年好得，人就没了灵气，时间就要白白流逝。只有一双发现美的慧眼和不随波逐流的高格，才是每个人最大的宝贝。</p>
+<p>佛家说，身似菩提树，心如明镜台。人要像明镜一样，才能把握住人生。我们把自己变成明镜照这大千世界，还得志向高远，眼界开阔。时时勤拂拭，莫使惹尘埃。</p>
+<p>这也就引出来宗白华的一段话：</p>
+<blockquote>
+<p>艺术心灵的诞生，在人生忘我的一刹那，即美学上所谓“静照”。静照的起点在于空诸一切，心无挂碍，和世务暂时绝缘。这时一点觉心，静观万象，万象如在镜中，光明莹洁，而各得其所，呈现着它们各自的充实的、内在的、自由的生命，所谓万物静观皆自得。</p>
+</blockquote>
+<p>当我们静观万象而忘我的时候，就好像宇宙的镜子一样，喻无尽于有限，创造出映射真理的艺术形象、追问真理的哲学命题、或是描述真理的科学公式来。从这个角度说，菩提本无树，明镜亦非台，关键是树能“静”，镜能“照”，“静照”而“自得”也。如果“得”而传于后世，还有谁能说你渺小呢？</p>
+<p>英国人布莱克写诗说：一沙一世界，一花一天国，君掌盛无边，刹那含永劫。</p>
+<p>人来自大地，归于尘土，倏忽而逝，却足以给永恒一个象征，就像云雾中的小水珠，却反射着真理的光。</p>
+<p>歌德说：在璀璨的反光里，我们把握到生命。</p>
+<p>于是绳命，就变的回晃而井猜了。</p>
+<hr>
+<p><em>注1：12年夏，在去威海的火车上读了宗白华的《美学散步》所写。</em><br><em>注2：布莱克的诗名为《To see a world in a grain of sand》，翻译自《美学散步》。</em><br><em>注3：歌德的话翻译自《美学散步》，后人多引用，相信这句话存在，但我却一时找不到原文（德语不行）。</em></p>
+<h2 id="忘我篇（14年春）"><a href="#忘我篇（14年春）" class="headerlink" title="忘我篇（14年春）"></a>忘我篇（14年春）</h2><p>许三多说，好好活就是做有意义的事。的确，人生是需要有意义的。人生有了意义，就不会“因虚度年华而悔恨，因碌碌无为而羞愧”。所以我们找各种各样的标准，做各种各样的努力。虽然眼界有高低之分，但是人们大多要实现目标，当一个所谓“人生赢家”。</p>
+<p>一年半之前，我从威海游览而回，心智颇通，也思考了人生的意义，我写道：“如云雾中的小水珠，却反射着真理的光”。</p>
+<p>于是暂得于己，快然自足。不管看什么东西，心里都会有一个尺度，看看它会让我离成功更近还是更远。</p>
+<p>然而在这个逻辑之外，还有一个更大的问题：人是客观的，还是主观的呢？是有意义重要，还是知道自己有意义重要呢？</p>
+<p>苏格拉底早就言明，万事万物皆有因果；而凡是有因果的地方，都有进行分析的余地。分析之后，便是智慧，热爱智慧，便是哲学（philos—sophia）。可见“反射真理的光”，并不是世界上最难的事情。然而景行行止之余，还有一个更重要的问题：就算真的有意义如圣人先知，垂暮之时，又能不能获得彻底的满足呢？</p>
+<p>恐怕不会。</p>
+<p>老子曰：“人皆知美之为美，斯恶已。”客观意义可以找到标准，可主观满足永远是相对而言。如果一个人的审美超前于时代，他看什么都不会美；一个人笑点超前于时代，他看什么都不会笑。从这个角度来说，我们苦苦追求，竟然是缘木求鱼。知道的越多，越不会快乐，孔子哭曰：“胡为乎来哉！”</p>
+<p>当然，一个人得不到喜与乐，并不妨碍一个人的成就。孔子虽然悲伤，依然是万世师表；而苏格拉底之死，更成就了他的伟大。可是，想了一辈子，追了一辈子，却不能获得最终的满足，就算没有“凤鸟不至，河不出图”的叹息，也逃不出“天高地迥，兴尽悲来”的宿命，这不是有些不完美吗？</p>
+<p>彼其于世，犹有未树也。</p>
+<p>群英会上，周公瑾醉酒舞剑，歌曰：</p>
+<blockquote>
+<p>“丈夫处世兮立功名；立功名兮慰平生。慰平生兮吾将醉；吾将醉兮发狂吟！”</p>
+</blockquote>
+<p>可见一个人的一生，对于人类可能自有用处，而对他自己来说，成就了什么，悟到了什么，不过是告慰平生。</p>
+<p>在美人迟暮之时，有一壶浊酒，古今多少事，都付笑谈中，如是而已。</p>
+<p>彼于致福者，犹有所待者也。</p>
+<p>《人间词话》论词的境界，说“有有我之境，有无我之境”，而“境界有大小，不以是而分高下”。人是客观的，也是主观的。既要追寻自然，把自己成就在“人生忘我的一刹那”；更要满足自己，找一个良辰吉日，不但不要忘我，还要忘记除我之外的一切，忘记前因与后果，来纵容自己幼稚的心。</p>
+<p>唯有感情不可计算，算出来的已不是感情。而“输”与“赢”的区别，不过是“一优美，一宏壮也”。</p>
+<p>终于又想起希腊人的三问，我是谁？从哪儿来？到哪儿去？我想，假如你要的只是快乐，那就不要知道答案。</p>
+<p>老子所谓“功成身遂”，王国维所谓“主观之诗人”。我想世界上最美好的人生，就是倾注才华上下求索，再把这一切统统忘记。</p>
+<p>本来无一物，何处惹尘埃。</p>
+<hr>
+<p><em>注1：大学快毕业时写的。后来我发现，这两篇实际上是一个从本体论到认识论的闭环</em></p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>诗与散文</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>夏日集</title>
+    <url>/2013/03/12/XiaRi/</url>
+    <content><![CDATA[<p>20-21岁的诗歌，择能看者六首</p>
+<hr>
+<h2 id="大明湖畔随笔（11年夏）"><a href="#大明湖畔随笔（11年夏）" class="headerlink" title="大明湖畔随笔（11年夏）"></a>大明湖畔随笔（11年夏）</h2><p>落日垂柳岸，雨后大明湖</p>
+<p>游人采莲色，画舫追湖风</p>
+<p>荡漾六七倾，亭阁十几重</p>
+<p>诗社今犹在，质朴是民风</p>
+<span id="more"></span>
+<p>济南名士多，历下有半城</p>
+<p><img src="/2013/03/12/XiaRi/DaMingHu.jpg" alt="大明湖畔，拍摄于当天"></p>
+<hr>
+<p><em>注1：大明湖曾有王士祯“秋柳诗社”，现为纪念馆</em></p>
+<p><em>注2：大明湖位于历下区，湖内有“历下亭”，有名景“历下秋风”</em></p>
+<p><em>注3：杜甫《陪李北海宴历下亭》：海右此亭古，济南名士多</em></p>
+<p><em>注4：大明湖有刘凤诰楹联：四面荷花三面柳，一城山色半城湖</em></p>
+<hr>
+<h2 id="盛夏正午飞跃大道（11年夏）"><a href="#盛夏正午飞跃大道（11年夏）" class="headerlink" title="盛夏正午飞跃大道（11年夏）"></a>盛夏正午飞跃大道（11年夏）</h2><p>黑灼灼柏油欲化，天滚滚烈日扬沙</p>
+<p>油罐车喷烟乱响，火车头拦路横爬</p>
+<p>行道树指头粗细，前后望空气模糊</p>
+<p>急匆匆只道快走，三五里不见行人</p>
+<p>心乱如麻、汗如雨下</p>
+<p>忽见道左，好一片圆白水塔</p>
+<p>明晃晃四个大字</p>
+<p>走近一看</p>
+<p>中国石化</p>
+<hr>
+<p><em>注1：郊区一景</em></p>
+<hr>
+<h2 id="看雾（12年初）"><a href="#看雾（12年初）" class="headerlink" title="看雾（12年初）"></a>看雾（12年初）</h2><p>夜深不肯睡，乱倚瘦栏杆</p>
+<p>灯火断续里，水汽何茫然</p>
+<p>雾中有往事，能不沾衣衫</p>
+<p>天地聚还散，人生不复还</p>
+<p>多少欢笑事，本应雾中看</p>
+<p>一朝风吹尽，从此无尘寰</p>
+<hr>
+<h2 id="如果（12年春）"><a href="#如果（12年春）" class="headerlink" title="如果（12年春）"></a>如果（12年春）</h2><p>如果每天学学物理、弹弹吉他、做几个俯卧撑</p>
+<p>如果偶尔看场电影</p>
+<p>如果每天散步、读一首诗</p>
+<p>那么每天需要多少时间？</p>
+<hr>
+<p>如果风吹乱了翻开的书</p>
+<p>蜻蜓在夏雨的脚印里点水</p>
+<p>闭上眼睛</p>
+<p>万籁俱寂</p>
+<hr>
+<p>如果我找回心爱的水枪、动物园不要门票</p>
+<p>如果奶奶已经把饭做好</p>
+<p>时间的箭头折返、热力学的定律作废</p>
+<p>如果人心是一张白纸</p>
+<p>你可以留下怎样的字迹</p>
+<hr>
+<p><em>注1：热力学第二定律揭示，在宏观尺度下，时间流易会导致孤立系统的熵增加，即时间具有方向性</em></p>
+<hr>
+<h2 id="返校路上（12年秋）"><a href="#返校路上（12年秋）" class="headerlink" title="返校路上（12年秋）"></a>返校路上（12年秋）</h2><p>拿着行李、堵在杆石桥</p>
+<p>看见一个刚放学的学妹</p>
+<p>她要从学校回家，我要从家去学校</p>
+<p>今天的天气格外好</p>
+<p>夕阳西下</p>
+<p>金黄色的是她，身一转就是一个世界</p>
+<p>深蓝色的是我，车一开就是一个光年</p>
+<hr>
+<h2 id="回乡偶书（13年春）"><a href="#回乡偶书（13年春）" class="headerlink" title="回乡偶书（13年春）"></a>回乡偶书（13年春）</h2><p>一年寒暑两还家，家中老母多牵挂</p>
+<p>唯恐身心不称意，直将儿郎作儿娃</p>
+<p>泰山青青青未了，此心不安为白发</p>
+<p>年年盼儿年年老，却问出国有钱花</p>
+<hr>
+<p><em>注1：杜甫《望岳》：岱宗夫如何，齐鲁青未了</em></p>
+<hr>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>诗与散文</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>新叶集</title>
+    <url>/2008/05/11/XinYe/</url>
+    <content><![CDATA[<p>15-16岁的诗歌，择能看者五首</p>
+<hr>
+<h2 id="红颜（06年冬）"><a href="#红颜（06年冬）" class="headerlink" title="红颜（06年冬）"></a>红颜（06年冬）</h2><p>红颜乱人心，一日不见心不宁</p>
+<p>于是闭门思过学古人</p>
+<p>定睛细看</p>
+<p>诗书赫赫灰尘旧，跃然纸上皆是情</p>
+<span id="more"></span>
+
+<hr>
+<p>红颜乱人心，目不斜视心难静</p>
+<p>因此故作深沉装无心</p>
+<p>冷眼旁观</p>
+<p>破绽百出惹人笑，狼狈不堪只为情</p>
+<hr>
+<p>唉！红颜乱人心，欲斩情丝心无计</p>
+<p>何苦自古世人多非议</p>
+<p>怅然退思</p>
+<p>明眸剪水本无心，只是匹夫太多情</p>
+<hr>
+<h2 id="桃源（07年春）"><a href="#桃源（07年春）" class="headerlink" title="桃源（07年春）"></a>桃源（07年春）</h2><p>我路过一片朦胧的风景</p>
+<p>它很美，尽管遮蔽了我的眼睛</p>
+<p>冒着迷路的风险，我决定一探究竟</p>
+<p>传说有雾的地方，就有桃源的踪迹</p>
+<hr>
+<p>走尽缠绵的幽径，劈开层层的荆棘</p>
+<p>在疑雾最深的地方，我终于揭开了谜底</p>
+<p>桃花流水，我一见倾心</p>
+<hr>
+<p>于是我留下来，依恋这片仙境</p>
+<p>任时光飞去，也不会可惜</p>
+<p>可是浓密深厚的雾，却提醒我天涯的清晰</p>
+<p>我开始有一种预感，分别之日已越来越近</p>
+<p>前方还有路，所以我无法回避</p>
+<hr>
+<p>我走之后，这里又会被云雾隔离</p>
+<p>也许有回忆，但再也不能偎依</p>
+<p>我没有回避来时的使命</p>
+<p>却终于回避了这里</p>
+<hr>
+<h2 id="无我（07年夏）"><a href="#无我（07年夏）" class="headerlink" title="无我（07年夏）"></a>无我（07年夏）</h2><p>时间像用不完一样，以至于产生了错觉</p>
+<hr>
+<p>有时候听着蟋蟀的叫声入睡</p>
+<p>声音太熟悉，我却听出了此时此地的陌生</p>
+<p>有时候看着窗外的车流出神</p>
+<p>景象太熟悉，我却看出了印象渺茫的世界</p>
+<hr>
+<p>日升日沉，云聚云散，风起雨落，孤月流星</p>
+<p>一天一天</p>
+<p>人不可能有死亡的感觉</p>
+<p>可是生存的感觉是什么呢</p>
+<hr>
+<h2 id="天恸（07年秋）"><a href="#天恸（07年秋）" class="headerlink" title="天恸（07年秋）"></a>天恸（07年秋）</h2><p>天欲哭兮，寰宇震动</p>
+<p>风为之哀号，树不能立足</p>
+<p>云变色兮，玄黄往复</p>
+<p>月不敢出兮，日避旸谷</p>
+<hr>
+<p>大哉！天恸</p>
+<p>涕泗滂沱兮，与汝同愁</p>
+<hr>
+<p><em>注1：那天下暴雨</em></p>
+<hr>
+<h2 id="凄雨（08年春）"><a href="#凄雨（08年春）" class="headerlink" title="凄雨（08年春）"></a>凄雨（08年春）</h2><p>雾雨茫然醉归鸿</p>
+<p>天涯路远泣车声</p>
+<p>一任愁云千万里</p>
+<p>不知何物是苍穹</p>
+<hr>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>诗与散文</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>星月集</title>
+    <url>/2015/07/16/YouMu/</url>
+    <content><![CDATA[<p>22-24岁的诗歌，择能看者六首</p>
+<hr>
+<h2 id="人之有限（13年夏）"><a href="#人之有限（13年夏）" class="headerlink" title="人之有限（13年夏）"></a>人之有限（13年夏）</h2><p>岁月之长，人之有限</p>
+<p>世界之大，人之短浅</p>
+<p>江河流转，人之固执</p>
+<p>辰宿列张，人之纠缠</p>
+<span id="more"></span>
+<p>天地沧桑，人不可师</p>
+<p>乱我心者，不过如此</p>
+<p>幸甚至哉，歌以咏志</p>
+<hr>
+<h2 id="忆威海（14年初）"><a href="#忆威海（14年初）" class="headerlink" title="忆威海（14年初）"></a>忆威海（14年初）</h2><p>东行千里，以观海疆</p>
+<p>雪后天晴，海风激凉</p>
+<p>登高望远在环翠楼顶</p>
+<p>又亲涉海滩，静对白浪</p>
+<p>身后的一切变得黑暗</p>
+<p>大海上闪耀着午后的光</p>
+<p>看那货轮常满载而回</p>
+<p>想视野之外，必有宝藏</p>
+<p><img src="/2015/07/16/YouMu/YiWeiHai.jpg" alt="环翠楼顶，拍摄于当天"></p>
+<hr>
+<p><em>注1：环翠楼为古威海卫塔楼，视野极好，有明代赵鹤龄《登环翠楼七言排律碑》：区区倭种而今遁，赫赫神威自昔宣</em></p>
+<hr>
+<h2 id="骄子（14年春）"><a href="#骄子（14年春）" class="headerlink" title="骄子（14年春）"></a>骄子（14年春）</h2><p>全世界要听我发号施令，而我只是被宠坏的孩子</p>
+<p>思想穿梭在历史长河，直到下午才起床梳洗</p>
+<p>没人照顾就骨瘦如柴，一见酒肉还狂吃暴饮</p>
+<p>永远说爱这花花世界，实际行动却遥遥无期</p>
+<hr>
+<p>我也曾被人寄予厚望，他们全部都离我而去</p>
+<p>我也曾听过金玉良言，然而我自认天下无敌</p>
+<hr>
+<p>春花开遍四月的北京，不过几天又洒落一地</p>
+<p>今天我终于感到羞愧，因为今天我遇见了你</p>
+<p>想到儿时天真的梦想</p>
+<p>请让我带你、实现一切</p>
+<hr>
+<h2 id="秋天的雨（15年初）"><a href="#秋天的雨（15年初）" class="headerlink" title="秋天的雨（15年初）"></a>秋天的雨（15年初）</h2><p>离开故乡很多年了，回家总是那么几天</p>
+<p>很想看一场秋天的雨</p>
+<p>想趴在自家窗台上</p>
+<p>闻闻青草、听听蟋蟀</p>
+<p>等雨下完</p>
+<hr>
+<h2 id="怀旧（15年春）"><a href="#怀旧（15年春）" class="headerlink" title="怀旧（15年春）"></a>怀旧（15年春）</h2><p>一段人生太过精彩</p>
+<p>一个故事太过难忘</p>
+<p>过了一年、记忆犹新</p>
+<p>过了三年、记忆犹新</p>
+<p>你以为永远也不会忘</p>
+<p>有一天再也拼不回去</p>
+<p>记得自己使劲地笑</p>
+<p>不记得何时何地何情何境</p>
+<hr>
+<p>于是听一首消失了的歌</p>
+<p>走过面目一新的街</p>
+<p>瞥见一些真情实感</p>
+<p>那个自己、多么遥远</p>
+<hr>
+<h2 id="游牧（15年夏）"><a href="#游牧（15年夏）" class="headerlink" title="游牧（15年夏）"></a>游牧（15年夏）</h2><p>如果生来是个牧民，</p>
+<p>我就会生得身强力壮。</p>
+<p>在马群中奔驰呼号，</p>
+<p>赶去市场与人通商。</p>
+<hr>
+<p>夜晚可以望向天空，</p>
+<p>写下星星月亮的故事。</p>
+<p>我能看清天边的来客，</p>
+<p>极能饮酒，善于歌唱。</p>
+<hr>
+<p>我就能追逐水草与甘泉，</p>
+<p>没有可以牵绊的家乡，</p>
+<p>一世繁华皆随我去，</p>
+<p>带上我的好好姑娘。</p>
+<p><img src="/2015/07/16/YouMu/HuaiRou.jpg" alt="怀柔水库，记一段开心日子"></p>
+<hr>
+<p><em>注1：年纪增长，情随事迁，25岁之后就没有写诗了</em></p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>诗与散文</tag>
+      </tags>
+  </entry>
+</search>
